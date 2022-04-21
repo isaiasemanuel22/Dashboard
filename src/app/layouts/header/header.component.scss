@@ -4,5 +4,57 @@
   background-color: #FFFfff;
   border-bottom: 0.5px solid #ccc;
   box-shadow: 5px 0px 5px #000;
-  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 30px;
+  padding-left: 30px;
+  .saludo{
+    width: 200px;
+    height: 70px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-flow: column;
+    text-align: start;
+    position: relative;
+    .bienvenido{
+      font-size: 20px;
+      margin: 0;
+      padding: 0;
+    }
+    .name{
+      position: absolute;
+      bottom: 0;
+      font-size: 28px;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  .actions{
+    height: 60px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .notifications{
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background-color: #63a9fa;
+    }
+    .my-perfil{
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background-color: #63a9fa;
+    }
+  }
 }

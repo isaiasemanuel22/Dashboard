@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'header-layout',
@@ -6,8 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  lottieConfig:any;
 
-  constructor() { }
+  @Input() name :string | undefined
+
+
+  constructor() {
+    this.lottieConfig = {
+      path: "https://cdn.lordicon.com/lusqsztk.js",
+      renderer: 'canvas',
+      autoplay: true,
+      loop: true
+  };
+   }
 
   ngOnInit(): void {
   }

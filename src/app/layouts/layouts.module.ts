@@ -1,11 +1,13 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { AppContentComponent } from './app-content/app-content.component';
 import { AppLayoutComponent } from './app-layout/app-layout.component';
 import { BlockLayoutComponent } from './block-layout/block-layout.component';
-
+import { LottieAnimationViewModule } from 'ng-lottie';
+import { defineLordIconElement } from 'lord-icon-element';
+import lottie from 'lottie-web';
 
 
 @NgModule({
@@ -17,7 +19,8 @@ import { BlockLayoutComponent } from './block-layout/block-layout.component';
     BlockLayoutComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    LottieAnimationViewModule.forRoot()
   ],
   exports:[
     HeaderComponent,
@@ -25,6 +28,13 @@ import { BlockLayoutComponent } from './block-layout/block-layout.component';
     AppContentComponent,
     AppLayoutComponent,
     BlockLayoutComponent
+  ],
+  schemas:[
+    CUSTOM_ELEMENTS_SCHEMA
   ]
 })
-export class LayoutsModule { }
+export class LayoutsModule {
+  constructor(){
+    defineLordIconElement(lottie.loadAnimation)
+  }
+}
