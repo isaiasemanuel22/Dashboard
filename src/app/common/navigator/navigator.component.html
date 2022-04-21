@@ -1,0 +1,17 @@
+<ul class="list-navigator">
+  <li>
+    <dashboard-nav (focus)="dashboardSelected()" [select]="dashboard" title="Dashboard"></dashboard-nav>
+  </li>
+  <li>
+    <dashboard-nav (focus)="productosSelected()" [select]="productos" title="Productos"></dashboard-nav>
+  </li>
+  <li>
+    <dashboard-nav (focus)="clientesSelected()" [select]="clientes" title="Clientes"></dashboard-nav>
+  </li>
+  <li>
+    <dashboard-nav (focus)="proveedoresSelected()" [select]="proveedores" title="Proveedores"></dashboard-nav>
+  </li>
+  <li>
+    <dashboard-nav (focus)="ventasSelected()" [select]="ventas" title="Ventas"></dashboard-nav>
+  </li>
+</ul>

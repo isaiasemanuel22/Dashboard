@@ -1,0 +1,20 @@
+<svg id="EfectoBoton" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" viewBox="0 0 302 130.001">
+  <defs>
+    <filter id="Unión_2">
+      <feOffset dx="5" dy="5" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-color="#a4a1a1" result="color"/>
+      <feComposite operator="out" in="SourceGraphic" in2="blur"/>
+      <feComposite operator="in" in="color"/>
+      <feComposite operator="in" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g data-type="innerShadowGroup">
+    <path id="Unión_2-2" data-name="Unión 2" d="M-2051.124,1161v0l-1.13-.89a39.9,39.9,0,0,0-38.667-30.511l-.16-.126h-192.784a20.2,20.2,0,0,1-2.257.126H-2307a20,20,0,0,1-20-20v-28a20,20,0,0,1,20-20h20.878a20.181,20.181,0,0,1,2.62.17h192.872l.226-.176a40.154,40.154,0,0,0,37.9-29.51l1.387-1.08v130Z" transform="translate(2353 -1031)" fill="#fff"/>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Unión_2)">
+      <path id="Unión_2-3" data-name="Unión 2" d="M-2051.124,1161v0l-1.13-.89a39.9,39.9,0,0,0-38.667-30.511l-.16-.126h-192.784a20.2,20.2,0,0,1-2.257.126H-2307a20,20,0,0,1-20-20v-28a20,20,0,0,1,20-20h20.878a20.181,20.181,0,0,1,2.62.17h192.872l.226-.176a40.154,40.154,0,0,0,37.9-29.51l1.387-1.08v130Z" transform="translate(2353 -1031)" fill="#fff"/>
+    </g>
+  </g>
+  <rect id="Rectángulo_25" data-name="Rectángulo 25" width="302" height="68" transform="translate(0 30.821)" fill="none"/>
+</svg>
+

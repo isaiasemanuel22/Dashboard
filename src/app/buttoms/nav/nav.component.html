@@ -1,0 +1,19 @@
+<div tabindex="0" class="button-nav" (click)="activeClass()" [id]="titleButton">
+  <div class="focus-button">
+    <div  [ngClass]="{
+      'button': !selected,
+      'button-focus': selected }">
+      <button-nav-svg></button-nav-svg>
+    </div>
+  </div>
+  <div [ngClass]="{
+    'text': !selected,
+    'focus': selected }">
+    <p>
+      {{titleButton}}
+    </p>
+
+  </div>
+
+
+</div>
