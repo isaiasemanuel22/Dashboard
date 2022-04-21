@@ -4,21 +4,26 @@ import { NavigatorComponent } from './navigator/navigator.component';
 import { ButtomsModule } from '../buttoms/buttoms.module';
 import { LogoComponent } from './logo/logo.component';
 import { SvgModule } from '../svg/svg.module';
+import { ActionsComponent } from './actions/actions.component';
+import { LayoutsModule } from '../layouts/layouts.module';
 
 
 
 @NgModule({
   declarations: [
     NavigatorComponent,
-    LogoComponent
+    LogoComponent,
+    ActionsComponent
   ],
   imports: [
     ButtomsModule,
-    SvgModule
+    SvgModule,
+    LayoutsModule
   ],
   exports:[
     NavigatorComponent,
-    LogoComponent
+    LogoComponent,
+    ActionsComponent
   ]
 })
 export class DashboardCommonModule { }
