@@ -1,9 +1,9 @@
 <ul class="list-navigator">
   <li>
-    <dashboard-nav (focus)="dashboardSelected()" [select]="dashboard" title="Dashboard"></dashboard-nav>
+    <dashboard-nav  (click)="routing('home')" (focus)="dashboardSelected()" [select]="dashboard" title="Dashboard"></dashboard-nav>
   </li>
   <li>
-    <dashboard-nav (focus)="productosSelected()" [select]="productos" title="Productos"></dashboard-nav>
+    <dashboard-nav (click)="routing('products')" (focus)="productosSelected()" [select]="productos" title="Productos"></dashboard-nav>
   </li>
   <li>
     <dashboard-nav (focus)="clientesSelected()" [select]="clientes" title="Clientes"></dashboard-nav>

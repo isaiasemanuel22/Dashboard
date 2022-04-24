@@ -1,0 +1,24 @@
+.header-table{
+  max-width: 100%;
+  height: 30px;
+  background-color: rgb(199, 191, 191);
+  box-shadow: inset 5px 5px 5px rgb(164, 164, 164);
+  overflow-x: scroll;
+  margin-bottom: 10px;
+  .list-names{
+    width: 100%;
+    height: 100%;
+    font-size: 11px;
+    font-weight: bold;
+    color: rgb(49, 49, 49);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow-x: scroll;
+    :host {
+      width:100%;
+      height: 100%;
+    }
+
+  }
+}

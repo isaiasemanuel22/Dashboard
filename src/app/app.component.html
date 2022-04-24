@@ -1,1 +1,12 @@
-<router-outlet></router-outlet>
+<app-layout>
+  <app-nav sidebar>
+    <app-navigator items style="width: 100%; height: 100%;"></app-navigator>
+    <div logo>
+      <app-logo></app-logo>
+    </div>
+  </app-nav>
+  <header-layout [name]="name" header></header-layout>
+  <dashboard-block-layout content>
+    <router-outlet></router-outlet>
+  </dashboard-block-layout>
+</app-layout>

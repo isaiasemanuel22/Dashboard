@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router} from '@angular/router';
 @Component({
   selector: 'app-navigator',
   templateUrl: './navigator.component.html',
@@ -13,7 +13,7 @@ export class NavigatorComponent implements OnInit {
   proveedores!:boolean;
   ventas!:boolean;
 
-  constructor() { }
+  constructor( private route: Router) { }
 
   ngOnInit(): void {
   }
@@ -56,6 +56,10 @@ export class NavigatorComponent implements OnInit {
     this.clientes = false;
     this.proveedores = false;
     this.ventas = true;
+  }
+
+  routing(param:string){
+     this.route.navigate([param])
   }
 
 }
