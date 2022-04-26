@@ -4,15 +4,16 @@
   display: flex;
   align-items: center;
   .sidebar{
-    width: 200px;
+    width: 250px;
     height: 100vh;
+    min-height: 800px;
   }
   .app-content{
     box-sizing: border-box;
     width: calc(100vw - 200px);;
     height: 100vh;
     .content{
-     height:calc(100vh - 100px);
+     height:calc(100vh - 150px);
     }
   }
 }

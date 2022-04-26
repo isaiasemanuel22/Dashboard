@@ -1,38 +1,27 @@
 <card-content>
-  <p title >Productos</p>
+  <p title>Productos</p>
   <div content class="content-table">
     <search></search>
-    <table class="table" *ngIf="!detail; else detail_all" [heightBody]="height">
-      <item-name-table width="150px">Identificador</item-name-table>
-      <item-name-table width="300px">Nombre</item-name-table>
-      <item-name-table width="100px">Disponibles</item-name-table>
-      <item-name-table width="100px">Precio</item-name-table>
-
-      <item-table *ngFor="let item of mockProducts">
-        <item-name-table width="150px"># {{ item.id }}</item-name-table>
-        <item-name-table width="300px">{{ item.nameProduct}}</item-name-table>
-        <item-name-table width="100px">{{ item.disponible }}</item-name-table>
-        <item-name-table width="100px">{{ item.precio }} </item-name-table>
-      </item-table>
-    </table>
-  </div>
-</card-content>
-  <ng-template #detail_all >
     <table class="table" [heightBody]="height">
       <item-name-table width="150px">Identificador</item-name-table>
       <item-name-table width="300px">Nombre</item-name-table>
       <item-name-table width="100px">Disponibles</item-name-table>
       <item-name-table width="100px">Precio</item-name-table>
-      <item-name-table width="100px">Costo</item-name-table>
-      <item-name-table width="100px">Accion</item-name-table>
+      <item-name-table *ngIf="detail" width="100px">Costo</item-name-table>
+      <item-name-table *ngIf="detail" width="100px">Accion</item-name-table>
 
       <item-table *ngFor="let item of mockProducts">
         <item-name-table width="150px"># {{ item.id }}</item-name-table>
         <item-name-table width="300px">{{ item.nameProduct}}</item-name-table>
         <item-name-table width="100px">{{ item.disponible }}</item-name-table>
-        <item-name-table width="100px">{{ item.precio }} </item-name-table>
-        <item-name-table width="100px">{{ item.costo }}</item-name-table>
-        <item-name-table width="100px">Accion</item-name-table>
+        <item-name-table width="100px">$ {{ item.precio }}</item-name-table>
+        <item-name-table *ngIf="detail" width="100px">$ {{ item.costo }}</item-name-table>
+        <item-name-table *ngIf="detail" width="100px">
+          <lord-icon src="https://cdn.lordicon.com/dbkviqyk.json" trigger="hover"
+            colors="primary:#1b1091,secondary:#1663c7">
+          </lord-icon>
+        </item-name-table>
       </item-table>
     </table>
-  </ng-template>
+  </div>
+</card-content>

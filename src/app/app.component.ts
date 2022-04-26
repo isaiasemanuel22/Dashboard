@@ -9,6 +9,6 @@ export class AppComponent {
   title = 'dashboard';
   name='Isaias Calfin'
   constructor(){
-    alert('Herramienta en desarrollo');
+
   }
 }
