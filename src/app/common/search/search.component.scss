@@ -1,7 +1,7 @@
 .search {
   width: 400px;
-  height: 30px;
-  border-radius: 5px;
+  height: 50px;
+  border-radius: 20px;
   border: none;
   background-color: #efebeb;
   box-shadow: inset 5px 5px 6px rgba(0, 0, 0, 0.186);
@@ -9,8 +9,8 @@
   align-items: center;
   padding-left: 10px;
   .icon {
-    height: 30px;
-    width: 30px;
+    height: 40px;
+    width: 40px;
   }
   input {
     margin-left: 5px;
@@ -18,7 +18,7 @@
     background-color: rgba(0, 0, 0, 0);
     border: none;
     caret-color: #0077FF;
-    font-size: 12px;
+    font-size: 15px;
   }
   input:focus {
     outline: none;

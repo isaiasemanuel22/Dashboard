@@ -1,4 +1,4 @@
-<svg id="EfectoBoton" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" viewBox="0 0 302 130.001">
+<svg id="EfectoBoton" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="100%" width="100%" viewBox="0 0 302 130.001">
   <defs>
     <filter id="Unión_2">
       <feOffset dx="5" dy="5" input="SourceAlpha"/>
