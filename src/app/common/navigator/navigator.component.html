@@ -1,17 +1,17 @@
 <ul class="list-navigator">
   <li>
-    <dashboard-nav  (click)="routing('home')" (focus)="dashboardSelected()" [select]="dashboard" title="Dashboard"></dashboard-nav>
+    <dashboard-nav (click)="routing('home')" (focus)="dashboardSelected()" [select]="dashboard" title="Dashboard"></dashboard-nav>
   </li>
   <li>
     <dashboard-nav (click)="routing('products')" (focus)="productosSelected()" [select]="productos" title="Productos"></dashboard-nav>
   </li>
   <li>
-    <dashboard-nav (focus)="clientesSelected()" [select]="clientes" title="Clientes"></dashboard-nav>
+    <dashboard-nav (click)="routing('clients')"  (focus)="clientesSelected()" [select]="clientes" title="Clientes"></dashboard-nav>
   </li>
   <li>
-    <dashboard-nav (focus)="proveedoresSelected()" [select]="proveedores" title="Proveedores"></dashboard-nav>
+    <dashboard-nav (click)="routing('providers')" (focus)="proveedoresSelected()" [select]="proveedores" title="Proveedores"></dashboard-nav>
   </li>
   <li>
-    <dashboard-nav (focus)="ventasSelected()" [select]="ventas" title="Ventas"></dashboard-nav>
+    <dashboard-nav (click)="routing('sales')" (focus)="ventasSelected()" [select]="ventas" title="Ventas"></dashboard-nav>
   </li>
 </ul>

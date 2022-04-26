@@ -7,12 +7,18 @@ import { HomeComponent } from './views/home/home.component';
 import { LayoutsModule } from './layouts/layouts.module';
 import { DashboardCommonModule } from './common/common.module';
 import { ProductsComponent } from './views/products/products.component';
+import { ClientsComponent } from './views/clients/clients.component';
+import { ProvidersComponent } from './views/providers/providers.component';
+import { SalesComponent } from './views/sales/sales.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ProductsComponent,
+    ClientsComponent,
+    ProvidersComponent,
+    SalesComponent,
   ],
   imports: [
     BrowserModule,

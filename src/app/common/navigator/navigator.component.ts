@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router} from '@angular/router';
+import { ActivatedRoute, Router} from '@angular/router';
 @Component({
   selector: 'app-navigator',
   templateUrl: './navigator.component.html',
@@ -13,10 +13,64 @@ export class NavigatorComponent implements OnInit {
   proveedores!:boolean;
   ventas!:boolean;
 
-  constructor( private route: Router) { }
+  constructor( private route: Router , private router:ActivatedRoute) { }
 
   ngOnInit(): void {
+
   }
+  ngAfterViewInit(): void {
+    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+    //Add 'implements AfterViewInit' to the class.
+    this.selectPage();
+  }
+
+  selectPage(){
+    let ruta =  this.getUrl();
+    switch(ruta){
+      case 'home':{
+        this.dashboardSelected();
+        break;
+      }
+      case 'products':{
+        this.productosSelected();
+        break;
+      }
+      case 'clients':{
+        this.clientesSelected();
+        break;
+      }
+      case 'providers':{
+        this.proveedoresSelected();
+        break;
+      }
+      case 'sales':{
+        this.ventasSelected();
+        break;
+      }
+      default:{
+        this.dashboardSelected();
+        break;
+      }
+    }
+  }
+
+  getUrl():string{
+    let ruta = window.location.href;
+    if(ruta.includes('home')){
+      return 'home';
+    }
+
+    if(ruta.includes('products')){
+      return 'products';
+    }
+
+    if(ruta.includes('clients')){
+      return 'clients';
+    }
+
+    return '';
+  }
+
 
   dashboardSelected(){
     this.dashboard = true;
