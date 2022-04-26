@@ -16,8 +16,8 @@ import { defineLordIconElement } from 'lord-icon-element';
 import lottie from 'lottie-web';
 import { LottieAnimationViewModule } from 'ng-lottie';
 import { ItemNameTableComponent } from './table/item-name-table/item-name-table.component';
-
-
+import { PusrchaseComponent } from './pusrchase/pusrchase.component';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [
@@ -30,19 +30,22 @@ import { ItemNameTableComponent } from './table/item-name-table/item-name-table.
     HeaderTableComponent,
     BodyTableComponent,
     ItemTableComponent,
-    ItemNameTableComponent
+    ItemNameTableComponent,
+    PusrchaseComponent
   ],
   imports: [
     ButtomsModule,
     SvgModule,
     LayoutsModule,
-    LottieAnimationViewModule.forRoot()
+    LottieAnimationViewModule.forRoot(),
+    BrowserModule
   ],
   exports:[
     NavigatorComponent,
     LogoComponent,
     ActionsComponent,
-    ProductsComponent
+    ProductsComponent,
+    PusrchaseComponent
   ],
   schemas:[
     CUSTOM_ELEMENTS_SCHEMA
