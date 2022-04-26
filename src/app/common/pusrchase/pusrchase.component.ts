@@ -11,7 +11,6 @@ export class PusrchaseComponent implements OnInit {
   height = '';
   detail = false;
   @Input() set heightBody(height:string){
-    console.log(height);
     this.height = height;
   }
 

@@ -10,7 +10,6 @@ export class TableComponent implements OnInit {
   height ='';
 
   @Input() set heightBody(height:string){
-    console.log(height);
     this.height = height;
   }
   constructor() { }
