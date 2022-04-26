@@ -13,24 +13,15 @@ export class NavigatorComponent implements OnInit {
   proveedores!:boolean;
   ventas!:boolean;
 
-  constructor( private route: Router , private router:ActivatedRoute) { }
+  constructor( private route: Router) { }
 
   ngOnInit(): void {
-
-  }
-  ngAfterViewInit(): void {
-    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
-    //Add 'implements AfterViewInit' to the class.
     this.selectPage();
   }
 
   selectPage(){
     let ruta =  this.getUrl();
-    switch(ruta){
-      case 'home':{
-        this.dashboardSelected();
-        break;
-      }
+   switch(ruta){
       case 'products':{
         this.productosSelected();
         break;

@@ -13,6 +13,12 @@ export class ItemNameTableComponent implements OnInit {
     this.ancho = ancho;
   }
 
+  action=false;
+
+  @Input() set actions(action:boolean){
+    this.action = action;
+  }
+
 
   constructor() {
     const generateId = () => Math.random().toString(36).substr(2, 18);
