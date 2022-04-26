@@ -17,7 +17,7 @@
   }
   .content{
     width: 100%;
-    max-height: calc(100vh - 300px);
+    max-height:var(--max-card);
     overflow: hidden;
     box-sizing: border-box;
   }

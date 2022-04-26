@@ -1,7 +1,17 @@
 <div class="content-table-space" [id]="id">
-  <p>
-    <ng-content>
+  <div *ngIf="action" class="actions">
+    <ng-content select="lord-icon">
 
     </ng-content>
-  </p>
+  </div>
+  <div *ngIf="!action" class="text">
+    <p>
+      <ng-content>
+
+      </ng-content>
+    </p>
+  </div>
+
+
+
 </div>

@@ -9,9 +9,14 @@ export class PusrchaseComponent implements OnInit {
 
   mockPurchase!:any[];
   height = '';
+  detail = false;
   @Input() set heightBody(height:string){
     console.log(height);
     this.height = height;
+  }
+
+  @Input() set detailPruchase(detail:boolean){
+   this.detail = detail;
   }
 
   constructor() {

@@ -18,5 +18,11 @@ item-name-table{
   width: auto;
 }
 
+:root{
+  --header-height:150px;
+  --max-card:calc(100vh - var(--header-height) - 170px);
+  --max-height-body-table:calc(100vh - 450px)
+}
+
 
 
