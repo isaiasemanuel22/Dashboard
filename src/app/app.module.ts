@@ -10,6 +10,9 @@ import { ProductsComponent } from './views/products/products.component';
 import { ClientsComponent } from './views/clients/clients.component';
 import { ProvidersComponent } from './views/providers/providers.component';
 import { SalesComponent } from './views/sales/sales.component';
+import { SvgModule } from './svg/svg.module';
+import { LottieAnimationViewModule } from './lottie-animation-view/lottie-animation-view.module';
+/*import { LottieAnimationViewModule } from 'lottie-angular2';*/
 
 @NgModule({
   declarations: [
@@ -24,7 +27,9 @@ import { SalesComponent } from './views/sales/sales.component';
     BrowserModule,
     AppRoutingModule,
     LayoutsModule,
-    DashboardCommonModule
+    DashboardCommonModule,
+    SvgModule,
+    LottieAnimationViewModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
