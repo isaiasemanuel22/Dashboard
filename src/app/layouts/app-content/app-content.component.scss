@@ -18,7 +18,14 @@
   .content{
     width: 100%;
     max-height:var(--max-card);
-    overflow: hidden;
     box-sizing: border-box;
+    width: 100%;
+    overflow-x: scroll;
+    :host{
+      width: 100%;
+    }
+  }
+  .table{
+
   }
 }

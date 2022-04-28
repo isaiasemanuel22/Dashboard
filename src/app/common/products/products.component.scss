@@ -1,25 +1,18 @@
-.content-table{
-width: 100%;
-.container-actions{
+.content-table {
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-right: 5px;
-}
-.table{
-  width: 100%;
-  .list-items-header{
+  .container-actions {
     width: 100%;
-    height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    overflow-x: scroll;
+    padding-right: 5px;
   }
-  .list-info{
-    width: 100%;
-    .list-items-info{
+  .container-table {
+    width: 100px;
+    :host {
+      width: 100px;
+    }
+    .list-items-header {
       width: 100%;
       height: 100%;
       display: flex;
@@ -27,9 +20,19 @@ width: 100%;
       justify-content: space-between;
       overflow-x: scroll;
     }
-    :host{
+    .list-info {
       width: 100%;
+      .list-items-info {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        overflow-x: scroll;
+      }
+      :host {
+        width: 100%;
+      }
     }
   }
-}
 }
