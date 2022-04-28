@@ -12,3 +12,20 @@
     color: #fff;
   }
 }
+
+@media only screen and (max-width: 1400px) {
+  .buttom{
+    width: 200px;
+    height: 40px;
+    background-color: #0077FF;
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .name-buttom{
+      font-size: 15px;
+      color: #fff;
+    }
+  }
+}
