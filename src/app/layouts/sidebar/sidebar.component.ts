@@ -22,7 +22,7 @@ export class SidebarComponent implements OnInit {
        menu.style.transform = 'translateX(-150px)'
        this.sidebarOpened = false;
      }else{
-       element.style.width = '120px';
+       element.style.width = '150px';
        menu.style.transform = 'translateX(0px)'
        this.sidebarOpened = true;
      }
