@@ -12,10 +12,14 @@
         <item-name-table width="150px"># {{ item.order }}</item-name-table>
         <item-name-table width="300px">{{ item.clientName }}</item-name-table>
         <item-name-table width="100px">$ {{ item.totalSend }}</item-name-table>
-        <item-name-table width="100px">Precio</item-name-table>
+        <item-name-table *ngIf="detail" width="100px" [actions]="true">
+          <pencil icon></pencil>
+          <bin icon></bin>
+        </item-name-table>
+        <item-name-table *ngIf="!detail" width="100px" [actions]="true">
+          <document icon></document>
+        </item-name-table>
       </item-table>
-
-
     </table>
   </div>
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-nav',
@@ -7,9 +7,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
+  sidebarOpened = false;
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  openSidebar(){
+    let element = document.getElementById('sidebar');
+    let menu = document.getElementById('menu');
+   if(window.screen.availWidth < 800 && element && menu){
+     if(this.sidebarOpened){
+       element.style.width = '40px';
+       menu.style.transform = 'translateX(-150px)'
+       this.sidebarOpened = false;
+     }else{
+       element.style.width = '120px';
+       menu.style.transform = 'translateX(0px)'
+       this.sidebarOpened = true;
+     }
+   }
   }
 
 }

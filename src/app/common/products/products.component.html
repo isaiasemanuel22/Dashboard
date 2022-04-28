@@ -3,7 +3,7 @@
   <div content class="content-table">
     <div class="container-actions">
       <search></search>
-      <buttom-action>Agregar Producto</buttom-action>
+      <buttom-action *ngIf="detail">Agregar Producto</buttom-action>
     </div>
     <table class="table" [heightBody]="height">
       <item-name-table width="150px">Identificador</item-name-table>

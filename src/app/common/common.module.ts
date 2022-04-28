@@ -20,6 +20,7 @@ import { PusrchaseComponent } from './pusrchase/pusrchase.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { ClientsComponent } from './clients/clients.component';
 import { ProvidersComponent } from './providers/providers.component';
+import { ActionsPurchaseComponent } from './actions-purchase/actions-purchase.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ProvidersComponent } from './providers/providers.component';
     ItemNameTableComponent,
     PusrchaseComponent,
     ClientsComponent,
-    ProvidersComponent
+    ProvidersComponent,
+    ActionsPurchaseComponent
   ],
   imports: [
     ButtomsModule,
@@ -51,7 +53,8 @@ import { ProvidersComponent } from './providers/providers.component';
     ProductsComponent,
     PusrchaseComponent,
     ClientsComponent,
-    ProvidersComponent
+    ProvidersComponent,
+    ActionsPurchaseComponent
   ],
   schemas:[
     CUSTOM_ELEMENTS_SCHEMA
