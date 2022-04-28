@@ -30,13 +30,13 @@
     background-color: #0077FF;
     transition: 1s;
     .logo{
-      height: var(100px);
+      height: 100px;
       width: 100%;
     }
     .menu{
       width: 100%;
       min-height: 100px;
-      height: calc(100vh - var(100px));
+      height: calc(100vh - var(200px));
       display: flex;
       align-items: center;
       justify-content: center;
