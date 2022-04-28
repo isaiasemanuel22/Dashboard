@@ -1,0 +1,27 @@
+<card-content>
+  <p title>Clientes</p>
+  <div content class="content-table">
+    <div class="container-actions">
+      <search></search>
+      <buttom-action>Agregar Cliente</buttom-action>
+    </div>
+    <table class="table" [heightBody]="height">
+      <item-name-table width="100px">Apellido</item-name-table>
+      <item-name-table width="200px">Nombre</item-name-table>
+      <item-name-table width="200px">Email</item-name-table>
+      <item-name-table width="150px">Telefono</item-name-table>
+      <item-name-table width="100px">Accion</item-name-table>
+
+      <item-table *ngFor="let item of mockProducts">
+        <item-name-table width="100px">{{ item.lastName }}</item-name-table>
+        <item-name-table width="200px">{{ item.name}}</item-name-table>
+        <item-name-table width="200px">{{ item.email }}</item-name-table>
+        <item-name-table width="150px">{{ item.tel }}</item-name-table>
+        <item-name-table width="100px" [actions]="true">
+          <pencil icon></pencil>
+          <bin icon></bin>
+        </item-name-table>
+      </item-table>
+    </table>
+  </div>
+</card-content>

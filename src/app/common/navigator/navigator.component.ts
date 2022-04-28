@@ -59,6 +59,14 @@ export class NavigatorComponent implements OnInit {
       return 'clients';
     }
 
+    if(ruta.includes('providers')){
+      return 'providers';
+    }
+
+    if(ruta.includes('sales')){
+      return 'sales';
+    }
+
     return '';
   }
 

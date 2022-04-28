@@ -1,0 +1,162 @@
+import { Component, Input, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'providers',
+  templateUrl: './providers.component.html',
+  styleUrls: ['./providers.component.scss']
+})
+export class ProvidersComponent implements OnInit {
+
+  detail = false;
+  height = '';
+  heightTemp='';
+  @Input() set detailProducts(detail:boolean){
+    this.detail = detail
+  }
+
+  @Input() set heightBody(height:string){
+    this.height = height;
+  }
+
+  mockProducts:any[] = [];
+  constructor() {
+    this.mockProducts = [
+      {
+        id:1234,
+        addres:'Diagonal 2334 - Mar del plata - Buenos Aires',
+        name:'Artiuculo SA',
+        email:'isaiasemanuelcalfin@gmail.com',
+        tel:'2236745133'
+      },
+      {
+        id:1234,
+        addres:'Diagonal 2334 - Mar del plata - Buenos Aires',
+        name:'Isaias Emanuel',
+        email:'isaiasemanuelcalfin@gmail.com',
+        tel:'2236745133'
+      },
+      {
+        id:1234,
+        addres:'Diagonal 2334 - Mar del plata - Buenos Aires',
+        name:'Isaias Emanuel',
+        email:'isaiasemanuelcalfin@gmail.com',
+        tel:'2236745133'
+      },
+      {
+        id:1234,
+        addres:'Diagonal 2334 - Mar del plata - Buenos Aires',
+        name:'Isaias Emanuel',
+        email:'isaiasemanuelcalfin@gmail.com',
+        tel:'2236745133'
+      },
+      {
+        id:1234,
+        addres:'Diagonal 2334 - Mar del plata - Buenos Aires',
+        name:'Isaias Emanuel',
+        email:'isaiasemanuelcalfin@gmail.com',
+        tel:'2236745133'
+      },
+      {
+        id:1234,
+        addres:'Diagonal 2334 - Mar del plata - Buenos Aires',
+        name:'Isaias Emanuel',
+        email:'isaiasemanuelcalfin@gmail.com',
+        tel:'2236745133'
+      },
+      {
+        id:1234,
+        addres:'Diagonal 2334 - Mar del plata - Buenos Aires',
+        name:'Isaias Emanuel',
+        email:'isaiasemanuelcalfin@gmail.com',
+        tel:'2236745133'
+      },
+      {
+        id:1234,
+        addres:'Diagonal 2334 - Mar del plata - Buenos Aires',
+        name:'Isaias Emanuel',
+        email:'isaiasemanuelcalfin@gmail.com',
+        tel:'2236745133'
+      },
+      {
+        id:1234,
+        addres:'Diagonal 2334 - Mar del plata - Buenos Aires',
+        name:'Isaias Emanuel',
+        email:'isaiasemanuelcalfin@gmail.com',
+        tel:'2236745133'
+      },
+      {
+        id:1234,
+        addres:'Diagonal 2334 - Mar del plata - Buenos Aires',
+        name:'Isaias Emanuel',
+        email:'isaiasemanuelcalfin@gmail.com',
+        tel:'2236745133'
+      },
+      {
+        id:1234,
+        addres:'Diagonal 2334 - Mar del plata - Buenos Aires',
+        name:'Isaias Emanuel',
+        email:'isaiasemanuelcalfin@gmail.com',
+        tel:'2236745133'
+      },
+      {
+        id:1234,
+        addres:'Diagonal 2334 - Mar del plata - Buenos Aires',
+        name:'Isaias Emanuel',
+        email:'isaiasemanuelcalfin@gmail.com',
+        tel:'2236745133'
+      },
+      {
+        id:1234,
+        addres:'Diagonal 2334 - Mar del plata - Buenos Aires',
+        name:'Isaias Emanuel',
+        email:'isaiasemanuelcalfin@gmail.com',
+        tel:'2236745133'
+      },
+      {
+        id:1234,
+        addres:'Diagonal 2334 - Mar del plata - Buenos Aires',
+        name:'Isaias Emanuel',
+        email:'isaiasemanuelcalfin@gmail.com',
+        tel:'2236745133'
+      },
+      {
+        id:1234,
+        addres:'Diagonal 2334 - Mar del plata - Buenos Aires',
+        name:'Isaias Emanuel',
+        email:'isaiasemanuelcalfin@gmail.com',
+        tel:'2236745133'
+      },
+      {
+        id:1234,
+        addres:'Diagonal 2334 - Mar del plata - Buenos Aires',
+        name:'Isaias Emanuel',
+        email:'isaiasemanuelcalfin@gmail.com',
+        tel:'2236745133'
+      },
+      {
+        id:1234,
+        addres:'Diagonal 2334 - Mar del plata - Buenos Aires',
+        name:'Isaias Emanuel',
+        email:'isaiasemanuelcalfin@gmail.com',
+        tel:'2236745133'
+      },
+      {
+        id:1234,
+        addres:'Diagonal 2334 - Mar del plata - Buenos Aires',
+        name:'Isaias Emanuel',
+        email:'isaiasemanuelcalfin@gmail.com',
+        tel:'2236745133'
+      },
+      {
+        id:1234,
+        addres:'Diagonal 2334 - Mar del plata - Buenos Aires',
+        name:'Isaias Emanuel',
+        email:'isaiasemanuelcalfin@gmail.com',
+        tel:'2236745133'
+      }
+    ]
+  }
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
+}

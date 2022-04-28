@@ -19,10 +19,7 @@ export class PencilComponent implements OnInit {
           autoplay: false,
           loop: false
       };
-
       this.idIconAnimate = this.commonService.generateId();
-
-
   }
 
   ngAfterViewInit(): void {
