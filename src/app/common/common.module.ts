@@ -18,6 +18,8 @@ import { LottieAnimationViewModule } from 'ng-lottie';
 import { ItemNameTableComponent } from './table/item-name-table/item-name-table.component';
 import { PusrchaseComponent } from './pusrchase/pusrchase.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { ClientsComponent } from './clients/clients.component';
+import { ProvidersComponent } from './providers/providers.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { BrowserModule } from '@angular/platform-browser';
     BodyTableComponent,
     ItemTableComponent,
     ItemNameTableComponent,
-    PusrchaseComponent
+    PusrchaseComponent,
+    ClientsComponent,
+    ProvidersComponent
   ],
   imports: [
     ButtomsModule,
@@ -45,7 +49,9 @@ import { BrowserModule } from '@angular/platform-browser';
     LogoComponent,
     ActionsComponent,
     ProductsComponent,
-    PusrchaseComponent
+    PusrchaseComponent,
+    ClientsComponent,
+    ProvidersComponent
   ],
   schemas:[
     CUSTOM_ELEMENTS_SCHEMA
