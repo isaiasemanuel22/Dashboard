@@ -1,13 +1,13 @@
-<div class="app-nav" style="width: 100%;">
+<div class="app-nav" id="sidebar" >
   <div class="logo">
-    <div class="logo-icon">
+    <div class="logo-icon" (click)="openSidebar()" >
       <ng-content select="dashboard-logo">
 
       </ng-content>
     </div>
 
   </div>
-  <div class="menu">
+  <div class="menu" id="menu">
     <div class="items-nav">
       <ng-content select="[items]">
 

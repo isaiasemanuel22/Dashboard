@@ -8,6 +8,7 @@ import { defineLordIconElement } from 'lord-icon-element';
 import lottie from 'lottie-web';
 import { IconsLordComponent } from './icons-lord/icons-lord.component';
 import { BinComponent } from './bin/bin.component';
+import { DocumentComponent } from './document/document.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { BinComponent } from './bin/bin.component';
     PencilComponent,
     IconsLordComponent,
     BinComponent,
+    DocumentComponent,
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,8 @@ import { BinComponent } from './bin/bin.component';
     LogoComponent,
     PencilComponent,
     IconsLordComponent,
-    BinComponent
+    BinComponent,
+    DocumentComponent
   ],
   schemas:[
     CUSTOM_ELEMENTS_SCHEMA
