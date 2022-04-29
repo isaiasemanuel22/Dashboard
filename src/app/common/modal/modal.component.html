@@ -1,0 +1,12 @@
+<div class="modal">
+  <div class="contentCard">
+    <card-content [icon]="true" (closeEvent)="closeModal()" >
+      <ng-content title select="[title]">
+
+      </ng-content>
+      <ng-content content select="[content]" >
+
+      </ng-content>
+    </card-content>
+  </div>
+</div>

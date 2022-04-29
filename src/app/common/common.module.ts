@@ -21,6 +21,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ClientsComponent } from './clients/clients.component';
 import { ProvidersComponent } from './providers/providers.component';
 import { ActionsPurchaseComponent } from './actions-purchase/actions-purchase.component';
+import { ModalComponent } from './modal/modal.component';
+import { AddProductComponent } from './add-product/add-product.component';
+import { FormsModule } from '../forms/forms.module';
+import { FontsModule } from '../fonts/fonts.module';
 
 @NgModule({
   declarations: [
@@ -37,14 +41,18 @@ import { ActionsPurchaseComponent } from './actions-purchase/actions-purchase.co
     PusrchaseComponent,
     ClientsComponent,
     ProvidersComponent,
-    ActionsPurchaseComponent
+    ActionsPurchaseComponent,
+    ModalComponent,
+    AddProductComponent
   ],
   imports: [
     ButtomsModule,
     SvgModule,
     LayoutsModule,
     LottieAnimationViewModule.forRoot(),
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    FontsModule
   ],
   exports:[
     NavigatorComponent,
@@ -54,7 +62,9 @@ import { ActionsPurchaseComponent } from './actions-purchase/actions-purchase.co
     PusrchaseComponent,
     ClientsComponent,
     ProvidersComponent,
-    ActionsPurchaseComponent
+    ActionsPurchaseComponent,
+    AddProductComponent,
+    ModalComponent
   ],
   schemas:[
     CUSTOM_ELEMENTS_SCHEMA

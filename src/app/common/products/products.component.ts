@@ -10,6 +10,7 @@ export class ProductsComponent implements OnInit {
   detail = false;
   height = '';
   heightTemp='';
+  openedModal = false;
   @Input() set detailProducts(detail:boolean){
     this.detail = detail
   }
@@ -160,5 +161,12 @@ export class ProductsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  openModal(){
+    this.openedModal = true;
+  }
+
+  closeModal(){
+    this.openedModal = false;
+  }
 
 }

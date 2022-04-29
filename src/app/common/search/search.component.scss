@@ -17,7 +17,7 @@
     width: 100%;
     background-color: rgba(0, 0, 0, 0);
     border: none;
-    caret-color: #0077FF;
+    caret-color: #0077ff;
     font-size: 15px;
   }
   input:focus {
@@ -25,5 +25,35 @@
     border: none;
     background-color: rgba(0, 0, 0, 0);
   }
+}
 
+@media only screen and (max-width: 800px) {
+  .search {
+    width: 100%;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    background-color: #efebeb;
+    box-shadow: inset 5px 5px 6px rgba(0, 0, 0, 0.186);
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    .icon {
+      height: 30px;
+      width: 30px;
+    }
+    input {
+      margin-left: 5px;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0);
+      border: none;
+      caret-color: #0077ff;
+      font-size: 15px;
+    }
+    input:focus {
+      outline: none;
+      border: none;
+      background-color: rgba(0, 0, 0, 0);
+    }
+  }
 }

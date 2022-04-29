@@ -8,6 +8,7 @@ import { BlockLayoutComponent } from './block-layout/block-layout.component';
 import { LottieAnimationViewModule } from 'ng-lottie';
 import { defineLordIconElement } from 'lord-icon-element';
 import lottie from 'lottie-web';
+import { SvgModule } from '../svg/svg.module';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import lottie from 'lottie-web';
   ],
   imports: [
     CommonModule,
-    LottieAnimationViewModule.forRoot()
+    LottieAnimationViewModule.forRoot(),
+    SvgModule
   ],
   exports:[
     HeaderComponent,
