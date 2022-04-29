@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'actions',
@@ -7,9 +7,15 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ActionsComponent implements OnInit {
 
+  @Output() actionClick:EventEmitter<string> = new EventEmitter();
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+
+  openModalProductos(){
+    this.actionClick.emit('products')
   }
 
 }

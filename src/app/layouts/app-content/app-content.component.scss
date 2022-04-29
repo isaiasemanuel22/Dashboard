@@ -1,5 +1,6 @@
 .card-content{
   min-height: 100px;
+  max-height: 100%;
   width: 100%;
   box-shadow: 5px 5px 6px rgb(142, 142, 142);
   border-radius: 20px;
@@ -16,7 +17,6 @@
     position: absolute;
     top: 25px;
     right: 20px;
-
   }
   .title{
     font-size: 20px;
@@ -24,7 +24,6 @@
   }
   .content{
     width: 100%;
-    max-height:var(--max-card);
     box-sizing: border-box;
     width: 100%;
     overflow-x: scroll;

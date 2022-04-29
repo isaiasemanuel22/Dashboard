@@ -1,12 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'input-date',
-  templateUrl: './input-date.component.html',
-  styleUrls: ['./input-date.component.scss']
+  selector: 'input-select',
+  templateUrl: './input-select.component.html',
+  styleUrls: ['./input-select.component.scss']
 })
-export class InputDateComponent implements OnInit {
-
+export class InputSelectComponent implements OnInit {
   placeholderText = '';
 
   @Input() set placeholder(placeholder:string){
