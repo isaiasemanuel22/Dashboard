@@ -5,6 +5,7 @@ import { InputDateComponent } from './input-date/input-date.component';
 import { InputNumberComponent } from './input-number/input-number.component';
 import { SvgModule } from '../svg/svg.module';
 import { BtnSaveComponent } from './btn-save/btn-save.component';
+import { InputSelectComponent } from './input-select/input-select.component';
 
 
 
@@ -13,7 +14,8 @@ import { BtnSaveComponent } from './btn-save/btn-save.component';
     InputTextComponent,
     InputDateComponent,
     InputNumberComponent,
-    BtnSaveComponent
+    BtnSaveComponent,
+    InputSelectComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +25,8 @@ import { BtnSaveComponent } from './btn-save/btn-save.component';
     InputTextComponent,
     InputDateComponent,
     InputNumberComponent,
-    BtnSaveComponent
+    BtnSaveComponent,
+    InputSelectComponent
   ]
 })
 export class FormsModule { }

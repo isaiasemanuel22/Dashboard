@@ -1,5 +1,12 @@
 <div class="list-utils-dashboard">
-  <actions></actions>
+  <actions (actionClick)="openModal($event)" ></actions>
   <products heightBody = "calc(100vh - 600px)"></products>
   <pusrchase heightBody = "calc(100vh - 600px)"></pusrchase>
 </div>
+
+<ng-container *ngIf="modalProducts">
+  <modal (closeEvent)="closeModalProductos()" >
+    <p title>Agregar Producto</p>
+    <add-product content></add-product>
+  </modal>
+</ng-container>
