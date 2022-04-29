@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'card-content',
@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppContentComponent implements OnInit {
 
+
+  @Input() icon:boolean = false;
+
+  @Output() closeEvent:EventEmitter<boolean> = new EventEmitter();
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  btnClose(){
+    this.closeEvent.emit(true);
   }
 
 }

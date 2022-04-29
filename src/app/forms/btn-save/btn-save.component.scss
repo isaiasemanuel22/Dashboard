@@ -1,0 +1,19 @@
+.button{
+  width: 300px;
+  height: 40px;
+  background-color: #0077FF;
+  border-radius: 10px;
+  box-shadow: 4px 4px 4px #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  button{
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+
+  }
+  .name-buttom{
+    font-size: 15px;
+    color: #fff;
+  }
+}

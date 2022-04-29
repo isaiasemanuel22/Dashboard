@@ -8,7 +8,7 @@
     padding-right: 5px;
   }
   .container-table {
-    width: 100px;
+    width: 100%;
     :host {
       width: 100px;
     }
@@ -32,6 +32,52 @@
       }
       :host {
         width: 100%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .content-table {
+    width: 100%;
+    .container-actions {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-flow: column;
+      flex-direction: column-reverse;
+      padding-right: 5px;
+      search{
+        width: 100%;
+      }
+    }
+    .container-table {
+      width: 100px;
+      :host {
+        width: 100px;
+      }
+      .list-items-header {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        overflow-x: scroll;
+      }
+      .list-info {
+        width: 100%;
+        .list-items-info {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          overflow-x: scroll;
+        }
+        :host {
+          width: 100%;
+        }
       }
     }
   }

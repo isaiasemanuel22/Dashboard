@@ -1,4 +1,5 @@
 <div class="card-content">
+  <btn-close *ngIf="icon" (click)="btnClose()"></btn-close>
   <div class="title">
     <ng-content select="[title]"></ng-content>
   </div>

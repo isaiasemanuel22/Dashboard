@@ -9,6 +9,8 @@ import lottie from 'lottie-web';
 import { IconsLordComponent } from './icons-lord/icons-lord.component';
 import { BinComponent } from './bin/bin.component';
 import { DocumentComponent } from './document/document.component';
+import { BtnMoreComponent } from './btn-more/btn-more.component';
+import { BtnCloseComponent } from './btn-close/btn-close.component';
 
 
 @NgModule({
@@ -19,6 +21,8 @@ import { DocumentComponent } from './document/document.component';
     IconsLordComponent,
     BinComponent,
     DocumentComponent,
+    BtnMoreComponent,
+    BtnCloseComponent,
   ],
   imports: [
     CommonModule,
@@ -30,7 +34,9 @@ import { DocumentComponent } from './document/document.component';
     PencilComponent,
     IconsLordComponent,
     BinComponent,
-    DocumentComponent
+    DocumentComponent,
+    BtnMoreComponent,
+    BtnCloseComponent
   ],
   schemas:[
     CUSTOM_ELEMENTS_SCHEMA

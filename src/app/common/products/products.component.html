@@ -3,7 +3,7 @@
   <div content class="content-table">
     <div class="container-actions">
       <search></search>
-      <buttom-action *ngIf="detail">Agregar Producto</buttom-action>
+      <buttom-action *ngIf="detail" (click)="openModal()" >Agregar Producto</buttom-action>
     </div>
     <div class="container-table">
       <table [heightBody]="height">
@@ -30,3 +30,10 @@
 
   </div>
 </card-content>
+
+<ng-container *ngIf="openedModal">
+  <modal (closeEvent)="closeModal()" >
+    <p title>Agregar Producto</p>
+    <add-product content></add-product>
+  </modal>
+</ng-container>
