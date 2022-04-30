@@ -1,40 +1,48 @@
+
 <div class="content-modal-product">
+  <form [formGroup]="addProduct">
+    <div class="content-inputs">
+      <div class="content-small">
+        <input-text placeholder="Codigo del producto" name="idProduct" [formGroup]="addProduct">
+          <label>Codigo del producto</label>
+        </input-text>
+      </div>
+      <div class="content-large">
+        <input-select
+        placeholder="Nombre del proveedor"
+        [icon]="true"
+        [optionsArray]="options"
+        key="name"
+        value="name"
+        name="nameProvider"
+        [formGroup]="addProduct" >
+          <label>Nombre del proveedor</label>
+        </input-select>
+      </div>
+    </div>
 
-  <div class="content-inputs">
-    <div class="content-small">
-      <input-text placeholder="Codigo del producto">
-        <label>Codigo del producto</label>
-      </input-text>
+    <div class="content-inputs">
+      <div class="content-xlarge">
+        <input-text placeholder="Nombre de producto"  name="nameProduct" [formGroup]="addProduct">
+          <label>Nombre de producto</label>
+        </input-text>
+      </div>
     </div>
-    <div class="content-large">
-      <input-select placeholder="Nombre del proveedor" [icon]="true">
-        <label>Nombre del proveedor</label>
-      </input-select>
-    </div>
-  </div>
 
-  <div class="content-inputs">
-    <div class="content-xlarge">
-      <input-text placeholder="Codigo del producto">
-        <label>Codigo del producto</label>
-      </input-text>
+    <div class="content-inputs">
+      <div class="content-medium">
+        <input-date placeholder="Fecha de ingreso" name="ingress" [formGroup]="addProduct" >
+          <label>Fecha de ingreso</label>
+        </input-date>
+      </div>
+      <div class="content-medium">
+        <input-text placeholder="Cantidad" name="stock" [formGroup]="addProduct">
+          <label>Cantidad</label>
+        </input-text>
+      </div>
     </div>
-  </div>
 
-  <div class="content-inputs">
-    <div class="content-medium">
-      <input-date placeholder="Fecha de ingreso">
-        <label>Fecha de ingreso</label>
-      </input-date>
-    </div>
-    <div class="content-medium">
-      <input-text placeholder="Cantidad">
-        <label>Cantidad</label>
-      </input-text>
-    </div>
-  </div>
-
-  <!--div class="content-inputs">
+    <!--div class="content-inputs">
     <div class="content-medium">
       <input-text placeholder="Origen">
         <label>Origen</label>
@@ -47,21 +55,23 @@
     </div>
   </div-->
 
-  <div class="content-inputs">
-    <div class="content-medium">
-      <input-text placeholder="Costo">
-        <label>Costo</label>
-      </input-text>
+    <div class="content-inputs">
+      <div class="content-medium">
+        <input-text placeholder="Costo" name="cost" [formGroup]="addProduct">
+          <label>Costo</label>
+        </input-text>
+      </div>
+      <div class="content-medium" >
+        <input-text placeholder="Precio" name="price" [formGroup]="addProduct">
+          <label>Precio</label>
+        </input-text>
+      </div>
     </div>
-    <div class="content-medium">
-      <input-text placeholder="Moneda">
-        <label>Moneda</label>
-      </input-text>
-    </div>
-  </div>
+  </form>
+
 
   <div class="content-btn-save">
-    <btn-save>Guardar Producto</btn-save>
+    <btn-save (click)="saveProduct()">Guardar Producto</btn-save>
   </div>
 
 </div>

@@ -6,6 +6,7 @@ import { InputNumberComponent } from './input-number/input-number.component';
 import { SvgModule } from '../svg/svg.module';
 import { BtnSaveComponent } from './btn-save/btn-save.component';
 import { InputSelectComponent } from './input-select/input-select.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -19,7 +20,8 @@ import { InputSelectComponent } from './input-select/input-select.component';
   ],
   imports: [
     CommonModule,
-    SvgModule
+    SvgModule,
+    ReactiveFormsModule
   ],
   exports:[
     InputTextComponent,

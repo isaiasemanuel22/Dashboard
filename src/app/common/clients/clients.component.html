@@ -3,7 +3,7 @@
   <div content class="content-table">
     <div class="container-actions">
       <search></search>
-      <buttom-action>Agregar Cliente</buttom-action>
+      <buttom-action (click)="openModalClient()" >Agregar Cliente</buttom-action>
     </div>
     <table class="table" [heightBody]="height">
       <item-name-table width="100px">Apellido</item-name-table>
@@ -25,3 +25,11 @@
     </table>
   </div>
 </card-content>
+
+
+<ng-container *ngIf="modalClient">
+  <modal (closeEvent)="closeModalClient()" >
+    <p title>Agregar Cliente</p>
+    <add-client content></add-client>
+  </modal>
+</ng-container>

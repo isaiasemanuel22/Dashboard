@@ -1,3 +1,4 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -10,6 +11,8 @@ export class ClientsComponent implements OnInit {
   detail = false;
   height = '';
   heightTemp='';
+
+  modalClient=false;
   @Input() set detailProducts(detail:boolean){
     this.detail = detail
   }
@@ -156,8 +159,16 @@ export class ClientsComponent implements OnInit {
       }
     ]
   }
+
+  openModalClient(){
+    this.modalClient = true;
+  }
+
+  closeModalClient(){
+    this.modalClient = false;
+  }
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+
   }
 
 }

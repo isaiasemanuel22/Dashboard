@@ -14,12 +14,12 @@
         <item-name-table *ngIf="detail" width="100px">Costo</item-name-table>
         <item-name-table *ngIf="detail" width="100px">Accion</item-name-table>
 
-        <item-table *ngFor="let item of mockProducts">
+        <item-table *ngFor="let item of products">
           <item-name-table width="150px">#{{ item.id }}</item-name-table>
-          <item-name-table width="300px">{{ item.nameProduct}}</item-name-table>
-          <item-name-table width="100px">{{ item.disponible }}</item-name-table>
-          <item-name-table width="100px">${{ item.precio }}</item-name-table>
-          <item-name-table *ngIf="detail" width="100px">${{ item.costo }}</item-name-table>
+          <item-name-table width="300px">{{ item.name}}</item-name-table>
+          <item-name-table width="100px">{{ item.stock }}</item-name-table>
+          <item-name-table width="100px">${{ item.price }}</item-name-table>
+          <item-name-table *ngIf="detail" width="100px">${{ item.cost }}</item-name-table>
           <item-name-table *ngIf="detail" width="100px" [actions]="true">
             <pencil icon></pencil>
             <bin icon></bin>
@@ -34,6 +34,6 @@
 <ng-container *ngIf="openedModal">
   <modal (closeEvent)="closeModal()" >
     <p title>Agregar Producto</p>
-    <add-product content></add-product>
+    <add-product content (saveEvent)="closeModal()" ></add-product>
   </modal>
 </ng-container>

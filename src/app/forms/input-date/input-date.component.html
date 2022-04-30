@@ -1,14 +1,20 @@
+<form [formGroup]="formGroup" *ngIf="formGroup">
 
-<div class="input-text">
-  <div class="title-input">
-    <ng-content select="label">
+  <div class="input-text">
+    <div class="title-input">
+      <ng-content select="label">
 
-    </ng-content>
-  </div>
-  <div class="inputIcon">
-    <div class="content-input">
-      <input type="date" name="" id="" [placeholder]="placeholderText">
+      </ng-content>
     </div>
+    <div class="inputIcon">
+      <div class="content-input">
+        <input type="date"
+        [placeholder]="placeholderText"
+        [formControlName]="nameControl"
+        [name]="nameControl">
+      </div>
+    </div>
+
   </div>
 
-</div>
+</form>
