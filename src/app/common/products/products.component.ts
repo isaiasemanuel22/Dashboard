@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { DataDashboardService } from 'src/app/resources/data-dashboard.service';
+import { Product } from 'src/app/resources/models/product';
 
 @Component({
   selector: 'products',
@@ -19,143 +21,11 @@ export class ProductsComponent implements OnInit {
     this.height = height;
   }
 
-  mockProducts:any[] = [];
-  constructor() {
-    this.mockProducts = [
-      {
-        id:1234,
-        nameProduct:'Overlock',
-        disponible:6,
-        precio:234,
-        costo:134
-      },
-      {
-        id:1234,
-        nameProduct:'Overlock',
-        disponible:6,
-        precio:234,
-        costo:134
-      },
-      {
-        id:1234,
-        nameProduct:'Overlock',
-        disponible:6,
-        precio:234,
-        costo:134
-      },
-      {
-        id:1234,
-        nameProduct:'Overlock',
-        disponible:6,
-        precio:234,
-        costo:134
-      },
-      {
-        id:1234,
-        nameProduct:'Overlock',
-        disponible:6,
-        precio:234,
-        costo:134
-      },
-      {
-        id:1234,
-        nameProduct:'Overlock',
-        disponible:6,
-        precio:234,
-        costo:134
-      },
-      {
-        id:1234,
-        nameProduct:'Overlock',
-        disponible:6,
-        precio:234,
-        costo:134
-      },
-      {
-        id:1234,
-        nameProduct:'Overlock',
-        disponible:6,
-        precio:234,
-        costo:134
-      },
-      {
-        id:1234,
-        nameProduct:'Overlock',
-        disponible:6,
-        precio:234,
-        costo:134
-      },
-      {
-        id:1234,
-        nameProduct:'Overlock',
-        disponible:6,
-        precio:234,
-        costo:134
-      },
-      {
-        id:1234,
-        nameProduct:'Overlock',
-        disponible:6,
-        precio:234,
-        costo:134
-      },
-      {
-        id:1234,
-        nameProduct:'Overlock',
-        disponible:6,
-        precio:234,
-        costo:134
-      },
-      {
-        id:1234,
-        nameProduct:'Overlock',
-        disponible:6,
-        precio:234,
-        costo:134
-      },
-      {
-        id:1234,
-        nameProduct:'Overlock',
-        disponible:6,
-        precio:234,
-        costo:134
-      },
-      {
-        id:1234,
-        nameProduct:'Overlock',
-        disponible:6,
-        precio:234,
-        costo:134
-      },
-      {
-        id:1234,
-        nameProduct:'Overlock',
-        disponible:6,
-        precio:234,
-        costo:134
-      },
-      {
-        id:1234,
-        nameProduct:'Overlock',
-        disponible:6,
-        precio:234,
-        costo:134
-      },
-      {
-        id:1234,
-        nameProduct:'Overlock',
-        disponible:6,
-        precio:234,
-        costo:134
-      },
-      {
-        id:1234,
-        nameProduct:'Overlock',
-        disponible:6,
-        precio:234,
-        costo:134
-      }
-    ]
+  products:Product[] = [];
+  constructor(private darhboard:DataDashboardService) {
+    this.darhboard.getProducts().subscribe((response)=>{
+      this.products = response;
+    })
   }
 
   ngOnInit(): void {

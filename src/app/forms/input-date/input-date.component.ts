@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'input-date',
@@ -8,12 +9,20 @@ import { Component, Input, OnInit } from '@angular/core';
 export class InputDateComponent implements OnInit {
 
   placeholderText = '';
+  nameControl = '';
 
-  @Input() set placeholder(placeholder:string){
+  @Input() set placeholder(placeholder: string) {
     this.placeholderText = placeholder;
   }
 
-  @Input() icon:boolean = false;
+  @Input() formGroup!: FormGroup;
+
+  @Input() icon: boolean = false;
+
+  @Input() set name(nameForm: string) {
+    this.nameControl = nameForm;
+  }
+
   constructor() { }
 
   ngOnInit(): void {

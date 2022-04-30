@@ -1,20 +1,18 @@
+<form [formGroup]="formGroup" *ngIf="formGroup">
+  <div class="input-text">
+    <div class="title-input">
+      <ng-content select="label">
 
-<div class="input-text">
-  <div class="title-input">
-    <ng-content select="label">
-
-    </ng-content>
-  </div>
-  <div class="inputIcon">
-    <div class="content-input">
-      <select name="" id="">
-        <option value="">Option 1</option>
-        <option value="">Option 2</option>
-        <option value="">Option 3</option>
-      </select>
+      </ng-content>
     </div>
-    <btn-more *ngIf="icon"></btn-more>
+    <div class="inputIcon">
+      <div class="content-input">
+        <select name="" id="" [name]="name" [formControlName]="name" *ngIf="elements.length > 0">
+          <option *ngIf="placeholderText" [value]="null">{{placeholderText}}</option>
+          <option  *ngFor="let option of elements" [value]="option[valueObj]">{{option['name']}}</option>
+        </select>
+      </div>
+      <btn-more *ngIf="icon"></btn-more>
+    </div>
   </div>
-
-
-</div>
+</form>

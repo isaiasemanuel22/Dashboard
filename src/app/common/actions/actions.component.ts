@@ -14,8 +14,9 @@ export class ActionsComponent implements OnInit {
   }
 
 
-  openModalProductos(){
-    this.actionClick.emit('products')
+  openModal(modalName:string){
+    this.actionClick.emit(modalName)
   }
+
 
 }

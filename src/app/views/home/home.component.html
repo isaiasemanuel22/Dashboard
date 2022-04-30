@@ -10,3 +10,10 @@
     <add-product content></add-product>
   </modal>
 </ng-container>
+
+<ng-container *ngIf="modalClient">
+  <modal (closeEvent)="closeModalClient()" >
+    <p title>Agregar Cliente</p>
+    <add-client content></add-client>
+  </modal>
+</ng-container>

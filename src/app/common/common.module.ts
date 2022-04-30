@@ -25,6 +25,8 @@ import { ModalComponent } from './modal/modal.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { FormsModule } from '../forms/forms.module';
 import { FontsModule } from '../fonts/fonts.module';
+import { AddClientComponent } from './add-client/add-client.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,8 @@ import { FontsModule } from '../fonts/fonts.module';
     ProvidersComponent,
     ActionsPurchaseComponent,
     ModalComponent,
-    AddProductComponent
+    AddProductComponent,
+    AddClientComponent
   ],
   imports: [
     ButtomsModule,
@@ -52,7 +55,9 @@ import { FontsModule } from '../fonts/fonts.module';
     LottieAnimationViewModule.forRoot(),
     BrowserModule,
     FormsModule,
-    FontsModule
+    FontsModule,
+    ReactiveFormsModule
+
   ],
   exports:[
     NavigatorComponent,
@@ -64,7 +69,8 @@ import { FontsModule } from '../fonts/fonts.module';
     ProvidersComponent,
     ActionsPurchaseComponent,
     AddProductComponent,
-    ModalComponent
+    ModalComponent,
+    AddClientComponent
   ],
   schemas:[
     CUSTOM_ELEMENTS_SCHEMA

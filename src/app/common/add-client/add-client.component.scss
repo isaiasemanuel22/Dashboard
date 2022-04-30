@@ -1,0 +1,32 @@
+.content-modal-product{
+  width: 100%;
+  min-height: 100px;
+  margin-bottom: 10px;
+  .content-inputs{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    .content-small{
+      width: 250px;
+    }
+    .content-large{
+      width: 350px;
+    }
+    .content-medium{
+      width: 300px;
+    }
+    .content-xlarge{
+      width: 100%;
+    }
+  }
+  .content-btn-save{
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 5px;
+  }
+}
