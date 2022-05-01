@@ -7,13 +7,13 @@
 <ng-container *ngIf="modalProducts">
   <modal (closeEvent)="closeModalProductos()" >
     <p title>Agregar Producto</p>
-    <add-product content></add-product>
+    <add-product content (saveEvent)="closeModalProductos()"></add-product>
   </modal>
 </ng-container>
 
 <ng-container *ngIf="modalClient">
   <modal (closeEvent)="closeModalClient()" >
     <p title>Agregar Cliente</p>
-    <add-client content></add-client>
+    <add-client content ></add-client>
   </modal>
 </ng-container>
