@@ -19,13 +19,13 @@ export class AddProductComponent implements OnInit {
   options: Provider[] = [];
   newProduct: Product = new Product();
 
-  @Input() set productEdit(product:Product){
-    if(product != undefined){
+  @Input() set productEdit(product: Product) {
+    if (product != undefined) {
       this.newProduct = product;
     }
   }
 
-  @Output() saveEvent:EventEmitter<boolean> = new EventEmitter();
+  @Output() saveEvent: EventEmitter<boolean> = new EventEmitter();
   constructor(
     private formBuilder: FormBuilder,
     private dashboardService: DataDashboardService
@@ -42,12 +42,14 @@ export class AddProductComponent implements OnInit {
   buildForm() {
     this.addProduct = this.formBuilder.group({
       idProduct: new FormControl(this.newProduct.id, [Validators.required]),
-      nameProvider: new FormControl(this.newProduct.provider, [Validators.required]),
-      nameProduct:  new FormControl(this.newProduct.name, [Validators.required]),
-      stock:  new FormControl(this.newProduct.stock),
-      cost:  new FormControl(this.newProduct.cost, [Validators.required]),
-      price: new FormControl(this.newProduct.price ),
-      ingress: new FormControl(this.newProduct.ingress, [Validators.required])
+      nameProvider: new FormControl(this.newProduct.provider, [
+        Validators.required,
+      ]),
+      nameProduct: new FormControl(this.newProduct.name, [Validators.required]),
+      stock: new FormControl(this.newProduct.stock),
+      cost: new FormControl(this.newProduct.cost, [Validators.required]),
+      price: new FormControl(this.newProduct.price),
+      ingress: new FormControl(this.newProduct.ingress, [Validators.required]),
     });
   }
 
@@ -55,16 +57,24 @@ export class AddProductComponent implements OnInit {
     const newProductResponse = this.addProduct.value;
     console.log(newProductResponse);
     if (!this.validateError(newProductResponse)) {
-      let newProduct: Product = new Product();
-      newProduct.id = newProductResponse.idProduct;
-      newProduct.provider = newProductResponse.nameProvider;
-      newProduct.name = newProductResponse.nameProduct;
-      newProduct.stock = newProductResponse.stock;
-      newProduct.cost = newProductResponse.cost;
-      newProduct.price = newProductResponse.price;
-      newProduct.ingress = newProductResponse.ingress
-      this.dashboardService.addProduct(newProduct);
-      this.saveEvent.emit(true);
+      const newProduct: any = {
+        id: newProductResponse.idProduct,
+        provider: newProductResponse.nameProvider,
+        name: newProductResponse.nameProduct,
+        stock: newProductResponse.stock,
+        cost: newProductResponse.cost,
+        price: newProductResponse.price,
+        ingress: newProductResponse.ingress,
+      };
+
+      this.dashboardService
+        .addProduct(newProduct)
+        .then(() => {
+          this.saveEvent.emit(true);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
   }
 

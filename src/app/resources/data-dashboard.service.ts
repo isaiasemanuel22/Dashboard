@@ -2,24 +2,18 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Product } from './models/product';
 import { Provider } from './models/provider';
+import { collectionData, Firestore } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { collection } from 'firebase/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataDashboardService {
 
-  constructor() { }
-  private products:Product[] = [
-    {
-      id:'1234',
-      name:'Porta vasos',
-      cost:'123',
-      provider:'Arturo Vasos',
-      ingress:'11/05/202',
-      stock:'10',
-      price:'234'
-    }
-  ];
+
+  constructor(private firestore:AngularFirestore ) { }
+  products$!:Observable<any[]>;
 
   private providers:Provider[] = [
     {
@@ -31,11 +25,12 @@ export class DataDashboardService {
   ]
 
   getProducts():Observable<Product[]>{
-    return of(this.products);
+    this.products$ = this.firestore.collection('products').valueChanges();
+    return this.products$;
   }
 
-  addProduct(newProduct:Product){
-    this.products.push(newProduct);
+  addProduct(newProduct:any){
+   return this.firestore.collection('products').add(newProduct);
   }
 
   getProviders():Observable<Provider[]>{

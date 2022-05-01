@@ -13,6 +13,13 @@ import { SalesComponent } from './views/sales/sales.component';
 import { SvgModule } from './svg/svg.module';
 import { LottieAnimationViewModule } from './lottie-animation-view/lottie-animation-view.module';
 /*import { LottieAnimationViewModule } from 'lottie-angular2';*/
+import { environment } from 'src/environments/environment';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { DataDashboardService } from './resources/data-dashboard.service';
 
 @NgModule({
   declarations: [
@@ -30,6 +37,9 @@ import { LottieAnimationViewModule } from './lottie-animation-view/lottie-animat
     DashboardCommonModule,
     SvgModule,
     LottieAnimationViewModule.forRoot(),
+    AngularFireModule.initializeApp(environment.firabase),
+    AngularFireStorageModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
