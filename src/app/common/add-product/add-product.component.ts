@@ -18,14 +18,16 @@ export class AddProductComponent implements OnInit {
   addProduct!: FormGroup;
   options: Provider[] = [];
   newProduct: Product = new Product();
-
-  @Input() set productEdit(product: Product) {
+  edit = false;
+  @Input() set productEdit(product: Product | undefined) {
     if (product != undefined) {
+      console.log(product);
       this.newProduct = product;
+      this.edit = true;
     }
   }
 
-  @Output() saveEvent: EventEmitter<boolean> = new EventEmitter();
+  @Output() saveEvent: EventEmitter<Product | undefined> = new EventEmitter();
   constructor(
     private formBuilder: FormBuilder,
     private dashboardService: DataDashboardService
@@ -41,7 +43,7 @@ export class AddProductComponent implements OnInit {
 
   buildForm() {
     this.addProduct = this.formBuilder.group({
-      idProduct: new FormControl(this.newProduct.id, [Validators.required]),
+      idProduct: new FormControl(this.newProduct.idProduct, [Validators.required]),
       nameProvider: new FormControl(this.newProduct.provider, [
         Validators.required,
       ]),
@@ -55,10 +57,9 @@ export class AddProductComponent implements OnInit {
 
   saveProduct() {
     const newProductResponse = this.addProduct.value;
-    console.log(newProductResponse);
     if (!this.validateError(newProductResponse)) {
       const newProduct: any = {
-        id: newProductResponse.idProduct,
+        idProduct: newProductResponse.idProduct,
         provider: newProductResponse.nameProvider,
         name: newProductResponse.nameProduct,
         stock: newProductResponse.stock,
@@ -67,16 +68,11 @@ export class AddProductComponent implements OnInit {
         ingress: newProductResponse.ingress,
       };
 
-      this.dashboardService
-        .addProduct(newProduct)
-        .then(() => {
-          this.saveEvent.emit(true);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      this.saveEvent.emit(newProduct);
     }
   }
+
+
 
   validateError(value: any[]) {
     value = this.addProduct.value;

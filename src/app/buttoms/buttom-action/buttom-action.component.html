@@ -1,5 +1,13 @@
-<div class="buttom">
-  <div class="name-buttom">
-      <ng-content ></ng-content>
+<div class="content-buttom">
+  <div class="buttom" *ngIf="!secondary">
+    <div class="name-buttom">
+      <ng-content></ng-content>
+    </div>
+  </div>
+
+  <div class="buttom-secondary" *ngIf="secondary">
+    <div class="name-buttom">
+      <ng-content select="[secondary]"></ng-content>
+    </div>
   </div>
 </div>

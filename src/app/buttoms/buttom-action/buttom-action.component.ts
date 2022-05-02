@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'buttom-action',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./buttom-action.component.scss']
 })
 export class ButtomActionComponent implements OnInit {
+
+  @Input() secondary:boolean = false;
 
   constructor() { }
 

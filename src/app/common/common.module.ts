@@ -13,8 +13,6 @@ import { HeaderTableComponent } from './table/header-table/header-table.componen
 import { BodyTableComponent } from './table/body-table/body-table.component';
 import { ItemTableComponent } from './table/item-table/item-table.component';
 import { defineLordIconElement } from 'lord-icon-element';
-import lottie from 'lottie-web';
-import { LottieAnimationViewModule } from 'ng-lottie';
 import { ItemNameTableComponent } from './table/item-name-table/item-name-table.component';
 import { PusrchaseComponent } from './pusrchase/pusrchase.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -27,6 +25,7 @@ import { FormsModule } from '../forms/forms.module';
 import { FontsModule } from '../fonts/fonts.module';
 import { AddClientComponent } from './add-client/add-client.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AlertDeleteComponent } from './alert-delete/alert-delete.component';
 
 @NgModule({
   declarations: [
@@ -46,13 +45,13 @@ import { ReactiveFormsModule } from '@angular/forms';
     ActionsPurchaseComponent,
     ModalComponent,
     AddProductComponent,
-    AddClientComponent
+    AddClientComponent,
+    AlertDeleteComponent
   ],
   imports: [
     ButtomsModule,
     SvgModule,
     LayoutsModule,
-    LottieAnimationViewModule.forRoot(),
     BrowserModule,
     FormsModule,
     FontsModule,
@@ -77,7 +76,4 @@ import { ReactiveFormsModule } from '@angular/forms';
   ]
 })
 export class DashboardCommonModule {
-  constructor(){
-    defineLordIconElement(lottie.loadAnimation)
-  }
  }
