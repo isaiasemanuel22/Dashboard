@@ -12,7 +12,6 @@ import { TableComponent } from './table/table.component';
 import { HeaderTableComponent } from './table/header-table/header-table.component';
 import { BodyTableComponent } from './table/body-table/body-table.component';
 import { ItemTableComponent } from './table/item-table/item-table.component';
-import { defineLordIconElement } from 'lord-icon-element';
 import { ItemNameTableComponent } from './table/item-name-table/item-name-table.component';
 import { PusrchaseComponent } from './pusrchase/pusrchase.component';
 import { BrowserModule } from '@angular/platform-browser';
