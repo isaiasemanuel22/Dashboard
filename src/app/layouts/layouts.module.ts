@@ -5,9 +5,6 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { AppContentComponent } from './app-content/app-content.component';
 import { AppLayoutComponent } from './app-layout/app-layout.component';
 import { BlockLayoutComponent } from './block-layout/block-layout.component';
-import { LottieAnimationViewModule } from 'ng-lottie';
-import { defineLordIconElement } from 'lord-icon-element';
-import lottie from 'lottie-web';
 import { SvgModule } from '../svg/svg.module';
 
 
@@ -21,7 +18,6 @@ import { SvgModule } from '../svg/svg.module';
   ],
   imports: [
     CommonModule,
-    LottieAnimationViewModule.forRoot(),
     SvgModule
   ],
   exports:[
@@ -37,6 +33,5 @@ import { SvgModule } from '../svg/svg.module';
 })
 export class LayoutsModule {
   constructor(){
-    defineLordIconElement(lottie.loadAnimation)
   }
 }
