@@ -24,13 +24,20 @@ export class DataDashboardService {
     }
   ]
 
-  getProducts():Observable<Product[]>{
-    this.products$ = this.firestore.collection('products').valueChanges();
-    return this.products$;
+  getProducts():Observable<any[]>{
+    return this.firestore.collection('products').snapshotChanges();
   }
 
   addProduct(newProduct:any){
    return this.firestore.collection('products').add(newProduct);
+  }
+
+  updateProduct(id:string , data:any){
+    return this.firestore.collection('products').doc(id).update(data);
+  }
+
+  deleteProduct(id:string){
+    return this.firestore.collection('products').doc(id).delete();
   }
 
   getProviders():Observable<Provider[]>{

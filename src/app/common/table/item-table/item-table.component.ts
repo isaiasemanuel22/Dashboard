@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, forwardRef, Host, Inject, OnInit } from '@angular/core';
+import { TableComponent } from '../table.component';
 
 @Component({
   selector: 'item-table',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ItemTableComponent implements OnInit {
 
-  constructor() { }
+  constructor(@Host() @Inject(forwardRef(()=> TableComponent)) private table:any) { }
 
   ngOnInit(): void {
   }

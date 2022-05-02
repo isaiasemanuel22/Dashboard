@@ -1,12 +1,19 @@
 <div class="container-table">
   <header-table>
-      <ng-content select="item-name-table">
-
-      </ng-content>
-  </header-table>
-  <body-table [height]="height">
-    <ng-content select="item-table" >
+    <ng-content select="item-name-table">
 
     </ng-content>
+  </header-table>
+  <body-table [height]="height">
+
+    <ng-content select="item-table">
+
+    </ng-content>
+
+
+    <ng-content select="[empty]">
+
+    </ng-content>
+
   </body-table>
 </div>
