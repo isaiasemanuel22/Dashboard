@@ -54,7 +54,7 @@ import { AlertDeleteComponent } from './alert-delete/alert-delete.component';
     BrowserModule,
     FormsModule,
     FontsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
 
   ],
   exports:[

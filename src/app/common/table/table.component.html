@@ -6,14 +6,21 @@
   </header-table>
   <body-table [height]="height">
 
-    <ng-content select="item-table">
+    <div #listTable>
+      <ng-content select="item-table">
 
-    </ng-content>
+      </ng-content>
+    </div>
 
 
-    <ng-content select="[empty]">
 
-    </ng-content>
+
+    <div class="emptyTable" *ngIf="!existTable">
+      <p>Esta lista esta vacia</p>
+    </div>
+    <!--ng-content select="[empty]">
+
+    </ng-content-->
 
   </body-table>
 </div>

@@ -9,6 +9,7 @@ import { BinComponent } from './bin/bin.component';
 import { DocumentComponent } from './document/document.component';
 import { BtnMoreComponent } from './btn-more/btn-more.component';
 import { BtnCloseComponent } from './btn-close/btn-close.component';
+import { ManStyleComponent } from './man-style/man-style.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { BtnCloseComponent } from './btn-close/btn-close.component';
     DocumentComponent,
     BtnMoreComponent,
     BtnCloseComponent,
+    ManStyleComponent,
   ],
   imports: [
     CommonModule,
@@ -34,7 +36,8 @@ import { BtnCloseComponent } from './btn-close/btn-close.component';
     BinComponent,
     DocumentComponent,
     BtnMoreComponent,
-    BtnCloseComponent
+    BtnCloseComponent,
+    ManStyleComponent
   ],
   schemas:[
     CUSTOM_ELEMENTS_SCHEMA
