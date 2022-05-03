@@ -1,51 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonServicesService } from 'src/app/resources/common-services.service';
+import { AbstractLottie } from '../abstract-lottie';
 
 @Component({
   selector: 'document',
   templateUrl: './document.component.html',
   styleUrls: ['./document.component.scss']
 })
-export class DocumentComponent implements OnInit {
-  public lottieConfig: Object;
-  public anim: any;
-  public animationSpeed: number = 1;
-  idIconAnimate:any;
-  constructor(private commonService:CommonServicesService) {
+export class DocumentComponent extends AbstractLottie implements OnInit {
+
+  constructor() {
+    super();
       this.lottieConfig = {
           path: 'assets/documents.json',
           autoplay: false,
           loop: false
       };
-      this.idIconAnimate = this.commonService.generateId();
-  }
-
-  ngAfterViewInit(): void {
   }
 
   ngOnInit(): void {
+    throw new Error('Method not implemented.');
   }
 
-
-  handleAnimation(anim: any) {
-      this.anim = anim;
-  }
-
-  stop() {
-      this.anim.stop();
-  }
-
-  play() {
-      this.anim.play();
-  }
-
-  pause() {
-      this.anim.pause();
-  }
-
-  setSpeed(speed: any) {
-      this.animationSpeed = speed;
-      this.anim.setSpeed(speed);
+  ngAfterViewInit(): void {
   }
 
 }

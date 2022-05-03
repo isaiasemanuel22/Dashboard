@@ -46,7 +46,6 @@ export class ProductsComponent implements OnInit {
 
   closeModal() {
     this.openedModal = false;
-    this.productEdit = undefined;
     this.modalDelete = false;
   }
 
@@ -83,6 +82,7 @@ export class ProductsComponent implements OnInit {
   updateProductService(updateProduct:any){
     console.log(this.productEdit.id);
     this.darhboard.updateProduct(this.productEdit.id , updateProduct).then(()=>{
+      this.productEdit = undefined;
     })
   }
 

@@ -6,7 +6,7 @@
       <buttom-action *ngIf="detail" (click)="openModal()">Agregar Producto</buttom-action>
     </div>
     <div class="container-table">
-      <table [heightBody]="height">
+      <table [heightBody]="height" [existTable]="products.length == 0">
         <item-name-table width="150px">Identificador</item-name-table>
         <item-name-table width="300px">Nombre</item-name-table>
         <item-name-table width="100px">Disponibles</item-name-table>
@@ -25,10 +25,6 @@
             <bin icon (click)="deleteProduct(item.id)"></bin>
           </item-name-table>
         </item-table>
-
-        <div class="emptyTable" empty *ngIf="products.length == 0">
-          <p>Esta lista esta vacia</p>
-        </div>
       </table>
     </div>
   </div>
