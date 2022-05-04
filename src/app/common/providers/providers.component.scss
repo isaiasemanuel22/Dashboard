@@ -1,15 +1,21 @@
-.content-table{
+.content-table {
   width: 100%;
-  .container-actions{
+  .container-actions {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding-right: 5px;
   }
-  .table{
+  .container-table {
     width: 100%;
-    .list-items-header{
+    .table{
+      width: 100%;
+    }
+    :host {
+      width: 100px;
+    }
+    .list-items-header {
       width: 100%;
       height: 100%;
       display: flex;
@@ -17,9 +23,9 @@
       justify-content: space-between;
       overflow-x: scroll;
     }
-    .list-info{
+    .list-info {
       width: 100%;
-      .list-items-info{
+      .list-items-info {
         width: 100%;
         height: 100%;
         display: flex;
@@ -27,9 +33,9 @@
         justify-content: space-between;
         overflow-x: scroll;
       }
-      :host{
+      :host {
         width: 100%;
       }
     }
   }
-  }
+}
