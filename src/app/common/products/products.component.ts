@@ -14,9 +14,11 @@ export class ProductsComponent implements OnInit {
   height = '';
   heightTemp = '';
   openedModal = false;
-  productEdit: any | undefined;
+  productEdit: any;
   modalDelete = false;
   productDelete!: string;
+
+
   @Input() set detailProducts(detail: boolean) {
     this.detail = detail;
   }

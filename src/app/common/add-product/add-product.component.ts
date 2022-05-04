@@ -18,12 +18,10 @@ export class AddProductComponent implements OnInit {
   addProduct!: FormGroup;
   options: Provider[] = [];
   newProduct: Product = new Product();
-  edit = false;
+
   @Input() set productEdit(product: Product | undefined) {
     if (product != undefined) {
-      console.log(product);
       this.newProduct = product;
-      this.edit = true;
     }
   }
 
@@ -44,9 +42,7 @@ export class AddProductComponent implements OnInit {
   buildForm() {
     this.addProduct = this.formBuilder.group({
       idProduct: new FormControl(this.newProduct.idProduct, [Validators.required]),
-      nameProvider: new FormControl(this.newProduct.provider, [
-        Validators.required,
-      ]),
+      nameProvider: new FormControl(this.newProduct.provider, [ Validators.required]),
       nameProduct: new FormControl(this.newProduct.name, [Validators.required]),
       stock: new FormControl(this.newProduct.stock),
       cost: new FormControl(this.newProduct.cost, [Validators.required]),
@@ -57,7 +53,7 @@ export class AddProductComponent implements OnInit {
 
   saveProduct() {
     const newProductResponse = this.addProduct.value;
-    if (!this.validateError(newProductResponse)) {
+    if (!this.validateError()) {
       const newProduct: any = {
         idProduct: newProductResponse.idProduct,
         provider: newProductResponse.nameProvider,
@@ -74,8 +70,8 @@ export class AddProductComponent implements OnInit {
 
 
 
-  validateError(value: any[]) {
-    value = this.addProduct.value;
+  validateError() {
+   let  value = this.addProduct.value;
     for (let key in value) {
       if (this.addProduct.get(key)?.errors) {
         return true;

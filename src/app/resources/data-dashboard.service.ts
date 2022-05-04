@@ -40,6 +40,26 @@ export class DataDashboardService {
     return this.firestore.collection('products').doc(id).delete();
   }
 
+
+
+  getClients(){
+    return this.firestore.collection('clients').snapshotChanges();
+  }
+
+  addClient(newClient:any){
+    return this.firestore.collection('clients').add(newClient);
+  }
+
+  updateClient(idClient:string , data:any){
+    return this.firestore.collection('clients').doc(idClient).update(data);
+  }
+
+  deleteClient(id:string){
+    return this.firestore.collection('clients').doc(id).delete();
+  }
+
+
+
   getProviders():Observable<Provider[]>{
     return of(this.providers);
   }

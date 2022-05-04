@@ -5,21 +5,21 @@
       <search></search>
       <buttom-action (click)="openModalClient()" >Agregar Cliente</buttom-action>
     </div>
-    <table class="table" [heightBody]="height">
+    <table class="table" [heightBody]="height" [existTable]="listClients.length == 0">
       <item-name-table width="100px">Apellido</item-name-table>
       <item-name-table width="200px">Nombre</item-name-table>
       <item-name-table width="200px">Email</item-name-table>
       <item-name-table width="150px">Telefono</item-name-table>
       <item-name-table width="100px">Accion</item-name-table>
 
-      <item-table *ngFor="let item of mockProducts">
-        <item-name-table width="100px">{{ item.lastName }}</item-name-table>
-        <item-name-table width="200px">{{ item.name}}</item-name-table>
+      <item-table *ngFor="let item of listClients">
+        <item-name-table width="100px">{{ item.lastnames }}</item-name-table>
+        <item-name-table width="200px">{{ item.names }}</item-name-table>
         <item-name-table width="200px">{{ item.email }}</item-name-table>
-        <item-name-table width="150px">{{ item.tel }}</item-name-table>
+        <item-name-table width="150px">{{ item.phoneNumber }}</item-name-table>
         <item-name-table width="100px" [actions]="true">
-          <pencil icon></pencil>
-          <bin icon></bin>
+          <pencil icon (click)="editClient(item)"></pencil>
+          <bin icon (click)="deleteClient(item.id)"></bin>
         </item-name-table>
       </item-table>
     </table>
@@ -30,6 +30,13 @@
 <ng-container *ngIf="modalClient">
   <modal (closeEvent)="closeModalClient()" >
     <p title>Agregar Cliente</p>
-    <add-client content></add-client>
+    <add-client content (saveEvent)="add_update($event)" [clientEdit]="clientEdit"></add-client>
   </modal>
+</ng-container>
+
+<ng-container *ngIf="modalDelete">
+  <modal (closeEvent)="deleteEvent(false)" >
+    <p title-center>¿Seguro que quieres eliminarlo?</p>
+    <alert-delete content (finally)="deleteEvent($event)" [inputDelete]="clientDelete"></alert-delete>
+   </modal>
 </ng-container>
