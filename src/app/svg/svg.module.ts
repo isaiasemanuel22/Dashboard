@@ -10,6 +10,8 @@ import { DocumentComponent } from './document/document.component';
 import { BtnMoreComponent } from './btn-more/btn-more.component';
 import { BtnCloseComponent } from './btn-close/btn-close.component';
 import { ManStyleComponent } from './man-style/man-style.component';
+import { SearchComponent } from './search/search.component';
+import { BellComponent } from './bell/bell.component';
 
 
 @NgModule({
@@ -23,6 +25,8 @@ import { ManStyleComponent } from './man-style/man-style.component';
     BtnMoreComponent,
     BtnCloseComponent,
     ManStyleComponent,
+    SearchComponent,
+    BellComponent,
   ],
   imports: [
     CommonModule,
@@ -37,7 +41,9 @@ import { ManStyleComponent } from './man-style/man-style.component';
     DocumentComponent,
     BtnMoreComponent,
     BtnCloseComponent,
-    ManStyleComponent
+    ManStyleComponent,
+    SearchComponent,
+    BellComponent
   ],
   schemas:[
     CUSTOM_ELEMENTS_SCHEMA

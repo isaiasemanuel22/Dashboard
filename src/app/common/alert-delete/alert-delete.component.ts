@@ -24,5 +24,9 @@ export class AlertDeleteComponent implements OnInit {
         this.finally.emit(true);
       });
     }
+
+    this.finally.emit(true);
   }
+
+
 }
