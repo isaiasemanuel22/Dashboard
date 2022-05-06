@@ -28,6 +28,7 @@ import { AlertDeleteComponent } from './alert-delete/alert-delete.component';
 import { NotificationTabComponent } from './notification-tab/notification-tab.component';
 import { AddProviderComponent } from './add/add-provider/add-provider.component';
 
+
 @NgModule({
   declarations: [
 
@@ -50,7 +51,8 @@ import { AddProviderComponent } from './add/add-provider/add-provider.component'
     AlertDeleteComponent,
     NotificationTabComponent,
     AddProviderComponent,
-    AddProductComponent
+    AddProductComponent,
+
   ],
   imports: [
     CommonModule,
@@ -75,7 +77,8 @@ import { AddProviderComponent } from './add/add-provider/add-provider.component'
     AddProductComponent,
     ModalComponent,
     AddClientComponent,
-    NotificationTabComponent
+    NotificationTabComponent,
+
   ],
   schemas:[
     CUSTOM_ELEMENTS_SCHEMA

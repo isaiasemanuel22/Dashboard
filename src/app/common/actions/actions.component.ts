@@ -8,7 +8,12 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class ActionsComponent implements OnInit {
 
   @Output() actionClick:EventEmitter<string> = new EventEmitter();
-  constructor() { }
+  loader = true;
+  constructor() {
+    setTimeout(() => {
+      this.loader = false;
+    }, 2000);
+  }
 
   ngOnInit(): void {
   }

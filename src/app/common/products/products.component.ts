@@ -28,7 +28,7 @@ export class ProductsComponent implements OnInit {
   @Input() set heightBody(height: string) {
     this.height = height;
   }
-
+  loader = true;
   products: any[] = [];
   constructor(
     private dashboard: DataDashboardService,
@@ -36,6 +36,7 @@ export class ProductsComponent implements OnInit {
 
 
     this.dashboard.getProducts().subscribe((lisProducts) => {
+      this.loader = true;
       this.products = [];
       lisProducts.forEach((product: any) => {
         this.products.push({
@@ -43,6 +44,9 @@ export class ProductsComponent implements OnInit {
           ...product.payload.doc.data(),
         });
       });
+      setTimeout(()=>{
+        this.loader = false;
+      },2000)
     });
   }
 

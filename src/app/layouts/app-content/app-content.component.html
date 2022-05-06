@@ -1,4 +1,4 @@
-<div class="card-content">
+<div class="card-content" *ngIf="!loader; else loading">
   <btn-close *ngIf="icon" (click)="btnClose()"></btn-close>
   <div class="title">
     <ng-content select="[title]"></ng-content>
@@ -17,3 +17,12 @@
     </ng-content>
   </div>
 </div>
+
+<ng-template #loading>
+  <div class="card-content">
+    <div class="loading">
+      <loader></loader>
+    </div>
+  </div>
+</ng-template>
+

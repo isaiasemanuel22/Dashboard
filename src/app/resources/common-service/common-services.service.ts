@@ -8,8 +8,6 @@ export class CommonServicesService {
 
   constructor() { }
 
-
-
   public notification = new Subject<string>();
 
   public notification$ = this.notification.asObservable();
@@ -21,6 +19,7 @@ export class CommonServicesService {
   addNotification(notificationMessage:string){
     this.notification.next(notificationMessage);
   }
+
 
 
 
