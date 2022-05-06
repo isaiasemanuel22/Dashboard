@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
-import { Client } from '../../resources/models/client';
+import { Client } from '../../../resources/models/client/client';
 
 @Component({
   selector: 'add-client',

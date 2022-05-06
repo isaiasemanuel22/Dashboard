@@ -1,6 +1,6 @@
 import { ThrowStmt } from '@angular/compiler';
 import { Component, Input, OnInit } from '@angular/core';
-import { DataDashboardService } from '../../resources/data-dashboard.service';
+import { DataDashboardService } from '../../resources/dashboardDataService/data-dashboard.service';
 
 @Component({
   selector: 'clients',
@@ -58,7 +58,6 @@ export class ClientsComponent implements OnInit {
     this.modalDelete = false;
     if(response){
       this.dashboard.deleteClient(this.clientDelete).then(()=>{
-        console.log('eliminada');
       }).catch((error)=>{
         console.error(error);
       })

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CommonServicesService } from '../../../resources/common-services.service';
+import { CommonServicesService } from '../../../resources/common-service/common-services.service';
 
 @Component({
   selector: 'body-table',

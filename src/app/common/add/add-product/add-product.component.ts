@@ -1,13 +1,8 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
-import { Provider } from 'src/app/resources/models/provider';
-import { DataDashboardService } from '../../resources/data-dashboard.service';
-import { Product } from '../../resources/models/product';
+import {FormBuilder,FormControl,FormGroup,Validators} from '@angular/forms';
+import { Provider } from 'src/app/resources/models/provider/provider';
+import { DataDashboardService } from '../../../resources/dashboardDataService/data-dashboard.service';
+import { Product } from '../../../resources/models/product/product';
 
 @Component({
   selector: 'add-product',
@@ -41,8 +36,12 @@ export class AddProductComponent implements OnInit {
 
   buildForm() {
     this.addProduct = this.formBuilder.group({
-      idProduct: new FormControl(this.newProduct.idProduct, [Validators.required]),
-      nameProvider: new FormControl(this.newProduct.provider, [ Validators.required]),
+      idProduct: new FormControl(this.newProduct.idProduct, [
+        Validators.required,
+      ]),
+      nameProvider: new FormControl(this.newProduct.provider, [
+        Validators.required,
+      ]),
       nameProduct: new FormControl(this.newProduct.name, [Validators.required]),
       stock: new FormControl(this.newProduct.stock),
       cost: new FormControl(this.newProduct.cost, [Validators.required]),
@@ -68,10 +67,8 @@ export class AddProductComponent implements OnInit {
     }
   }
 
-
-
   validateError() {
-   let  value = this.addProduct.value;
+    let value = this.addProduct.value;
     for (let key in value) {
       if (this.addProduct.get(key)?.errors) {
         return true;

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { DataDashboardService } from '../../resources/data-dashboard.service';
+import { DataDashboardService } from '../../resources/dashboardDataService/data-dashboard.service';
 
 @Component({
   selector: 'alert-delete',
@@ -7,10 +7,9 @@ import { DataDashboardService } from '../../resources/data-dashboard.service';
   styleUrls: ['./alert-delete.component.scss'],
 })
 export class AlertDeleteComponent implements OnInit {
-  @Input() inputDelete: string = '';
-  @Input() serviceDelete: string = '';
+
   @Output() finally:EventEmitter<boolean> = new EventEmitter();
-  constructor(private dashboardService: DataDashboardService) {}
+  constructor() {}
 
   ngOnInit(): void {}
 
@@ -19,12 +18,6 @@ export class AlertDeleteComponent implements OnInit {
   }
 
   continueDelete() {
-    if (this.serviceDelete == 'product') {
-      this.dashboardService.deleteProduct(this.inputDelete).then(()=>{
-        this.finally.emit(true);
-      });
-    }
-
     this.finally.emit(true);
   }
 

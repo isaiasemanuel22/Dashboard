@@ -28,3 +28,19 @@
 
   </div>
 </card-content>
+
+<ng-container *ngIf="openedModal">
+  <modal (closeEvent)="closeModal()">
+    <p title>Agregar Producto</p>
+    <add-product content (saveEvent)="add_update($event)" [providerEdit]="providerEdit"></add-product>
+  </modal>
+</ng-container>
+
+
+<!--ng-container *ngIf="modalDelete">
+  <modal (closeEvent)="closeModal()">
+    <p title-center>¿Seguro que quieres eliminarlo?</p>
+    <alert-delete content (finally)="deleteProductEvent($event)"  serviceDelete="product"></alert-delete>
+  </modal>
+</ng-container-->
+

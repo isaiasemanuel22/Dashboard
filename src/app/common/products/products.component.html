@@ -41,6 +41,13 @@
 <ng-container *ngIf="modalDelete">
   <modal (closeEvent)="closeModal()">
     <p title-center>¿Seguro que quieres eliminarlo?</p>
-    <alert-delete content (finally)="closeModal()" [inputDelete]="productDelete" serviceDelete="product"></alert-delete>
+    <alert-delete content (finally)="deleteProductEvent($event)"  serviceDelete="product"></alert-delete>
   </modal>
 </ng-container>
+
+
+<ng-conteiner *ngIf="notificationTab">
+  <notification-tab>
+    {{mesagge}}
+  </notification-tab>
+</ng-conteiner>

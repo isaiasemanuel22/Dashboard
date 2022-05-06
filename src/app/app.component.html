@@ -6,5 +6,8 @@
   <header-layout [name]="name" header></header-layout>
   <dashboard-block-layout content>
     <router-outlet></router-outlet>
+    <ng-container *ngIf="notification">
+      <notification-tab> {{ message }}</notification-tab>
+    </ng-container>
   </dashboard-block-layout>
 </app-layout>
