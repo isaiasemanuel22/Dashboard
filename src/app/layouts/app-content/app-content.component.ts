@@ -8,6 +8,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class AppContentComponent implements OnInit {
 
 
+  @Input() loader:boolean = true;
+
   @Input() icon:boolean = false;
 
   @Output() closeEvent:EventEmitter<boolean> = new EventEmitter();

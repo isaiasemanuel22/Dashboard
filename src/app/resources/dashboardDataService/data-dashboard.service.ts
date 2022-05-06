@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Product } from './models/product';
-import { Provider } from './models/provider';
+import { Product } from '../models/product/product';
+import { Provider } from '../models/provider/provider';
 import { collectionData, Firestore } from '@angular/fire/firestore';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { collection } from 'firebase/firestore';

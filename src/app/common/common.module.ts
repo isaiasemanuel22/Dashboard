@@ -19,15 +19,19 @@ import { ClientsComponent } from './clients/clients.component';
 import { ProvidersComponent } from './providers/providers.component';
 import { ActionsPurchaseComponent } from './actions-purchase/actions-purchase.component';
 import { ModalComponent } from './modal/modal.component';
-import { AddProductComponent } from './add-product/add-product.component';
+import { AddProductComponent } from './add/add-product/add-product.component';
 import { FormsModule } from '../forms/forms.module';
 import { FontsModule } from '../fonts/fonts.module';
-import { AddClientComponent } from './add-client/add-client.component';
+import { AddClientComponent } from './add/add-client/add-client.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AlertDeleteComponent } from './alert-delete/alert-delete.component';
+import { NotificationTabComponent } from './notification-tab/notification-tab.component';
+import { AddProviderComponent } from './add/add-provider/add-provider.component';
+
 
 @NgModule({
   declarations: [
+
     NavigatorComponent,
     LogoComponent,
     ActionsComponent,
@@ -43,11 +47,15 @@ import { AlertDeleteComponent } from './alert-delete/alert-delete.component';
     ProvidersComponent,
     ActionsPurchaseComponent,
     ModalComponent,
-    AddProductComponent,
     AddClientComponent,
-    AlertDeleteComponent
+    AlertDeleteComponent,
+    NotificationTabComponent,
+    AddProviderComponent,
+    AddProductComponent,
+
   ],
   imports: [
+    CommonModule,
     ButtomsModule,
     SvgModule,
     LayoutsModule,
@@ -68,7 +76,9 @@ import { AlertDeleteComponent } from './alert-delete/alert-delete.component';
     ActionsPurchaseComponent,
     AddProductComponent,
     ModalComponent,
-    AddClientComponent
+    AddClientComponent,
+    NotificationTabComponent,
+
   ],
   schemas:[
     CUSTOM_ELEMENTS_SCHEMA

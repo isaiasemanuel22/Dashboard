@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { DataDashboardService } from 'src/app/resources/data-dashboard.service';
+import { DataDashboardService } from 'src/app/resources/dashboardDataService/data-dashboard.service';
+import { CommonServicesService } from '../../resources/common-service/common-services.service';
 
 
 @Component({
@@ -17,7 +18,8 @@ export class ProductsComponent implements OnInit {
   productEdit: any;
   modalDelete = false;
   productDelete!: string;
-
+  notificationTab = false;
+  mesagge = '';
 
   @Input() set detailProducts(detail: boolean) {
     this.detail = detail;
@@ -26,10 +28,15 @@ export class ProductsComponent implements OnInit {
   @Input() set heightBody(height: string) {
     this.height = height;
   }
-
+  loader = true;
   products: any[] = [];
-  constructor(private darhboard: DataDashboardService) {
-    this.darhboard.getProducts().subscribe((lisProducts) => {
+  constructor(
+    private dashboard: DataDashboardService,
+    private commonService: CommonServicesService) {
+
+
+    this.dashboard.getProducts().subscribe((lisProducts) => {
+      this.loader = true;
       this.products = [];
       lisProducts.forEach((product: any) => {
         this.products.push({
@@ -37,6 +44,9 @@ export class ProductsComponent implements OnInit {
           ...product.payload.doc.data(),
         });
       });
+      setTimeout(()=>{
+        this.loader = false;
+      },2000)
     });
   }
 
@@ -48,7 +58,6 @@ export class ProductsComponent implements OnInit {
 
   closeModal() {
     this.openedModal = false;
-    this.modalDelete = false;
   }
 
   editProdut(product: any) {
@@ -71,21 +80,41 @@ export class ProductsComponent implements OnInit {
   }
 
   addProductService(newProduct:any){
-    this.darhboard
+    this.dashboard
     .addProduct(newProduct)
     .then(() => {
-
+      this.mesagge = 'Producto agregado correctamente';
+      this.notificationTab = true
     })
-    .catch((error) => {
-      console.log(error);
+    .catch(() => {
+      this.mesagge = 'Producto agregado correctamente';
+      this.notificationTab = true
     });
   }
 
   updateProductService(updateProduct:any){
-    console.log(this.productEdit.id);
-    this.darhboard.updateProduct(this.productEdit.id , updateProduct).then(()=>{
+    this.dashboard.updateProduct(this.productEdit.id , updateProduct).then(()=>{
       this.productEdit = undefined;
+      this.mesagge = 'Producto actualizado correctamente';
+      this.commonService.addNotification(this.mesagge);
+    }).catch(()=>{
+      this.commonService.addNotification('No se ha eliminado el producto');
     })
+  }
+
+
+  deleteProductEvent(response:any){
+    this.modalDelete = false;
+    if(response){
+      this.dashboard.deleteProduct(this.productDelete).then(()=>{
+        this.productDelete = '';
+        this.commonService.addNotification('Producto eliminado correctamente');
+      }).catch(()=>{
+        this.commonService.addNotification('No se ha eliminado el producto');
+      })
+    }else{
+      this.commonService.addNotification('No se ha eliminado el producto');
+    }
   }
 
 

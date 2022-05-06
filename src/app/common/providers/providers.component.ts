@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Provider } from 'src/app/resources/models/provider/provider';
 
 @Component({
   selector: 'providers',
@@ -10,6 +11,8 @@ export class ProvidersComponent implements OnInit {
   detail = false;
   height = '';
   heightTemp='';
+  openedModal = true;
+  providerEdit:Provider | undefined;
   @Input() set detailProducts(detail:boolean){
     this.detail = detail
   }
@@ -157,6 +160,14 @@ export class ProvidersComponent implements OnInit {
     ]
   }
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+
+  }
+
+  closeModal(){
+    this.openedModal = false;
+  }
+
+  add_update(response:any){
+
   }
 }
