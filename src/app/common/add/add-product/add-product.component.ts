@@ -25,9 +25,7 @@ export class AddProductComponent implements OnInit {
     private formBuilder: FormBuilder,
     private dashboardService: DataDashboardService
   ) {
-    this.dashboardService.getProviders().subscribe((response) => {
-      this.options = response;
-    });
+    this.options = this.dashboardService.getProviders();
   }
 
   ngOnInit(): void {
@@ -54,6 +52,7 @@ export class AddProductComponent implements OnInit {
     const newProductResponse = this.addProduct.value;
     if (!this.validateError()) {
       const newProduct: any = {
+        id : this.newProduct.id || '',
         idProduct: newProductResponse.idProduct,
         provider: newProductResponse.nameProvider,
         name: newProductResponse.nameProduct,

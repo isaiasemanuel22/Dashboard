@@ -31,7 +31,6 @@ import { AddProviderComponent } from './add/add-provider/add-provider.component'
 
 @NgModule({
   declarations: [
-
     NavigatorComponent,
     LogoComponent,
     ActionsComponent,

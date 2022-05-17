@@ -1,12 +1,12 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'item-name-table',
   templateUrl: './item-name-table.component.html',
   styleUrls: ['./item-name-table.component.scss'],
 })
-export class ItemNameTableComponent implements OnInit {
-  ancho = '50px';
+export class ItemNameTableComponent implements OnInit ,AfterViewInit{
+  ancho = '100%';
 
   id!:string;
   @Input() set width(ancho: string) {

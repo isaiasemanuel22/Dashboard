@@ -1,16 +1,23 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { style } from '@angular/animations';
+import {
+  Component,
+  OnInit,
+  Input,
+  ViewChild,
+  AfterViewInit,
+} from '@angular/core';
 
 import { DataDashboardService } from 'src/app/resources/dashboardDataService/data-dashboard.service';
+import { Product } from 'src/app/resources/models/product/product';
 import { CommonServicesService } from '../../resources/common-service/common-services.service';
-
+import { Loader, LoaderService } from '../../resources/loader/loader.service';
 
 @Component({
   selector: 'products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss'],
-
 })
-export class ProductsComponent implements OnInit {
+export class ProductsComponent implements OnInit, AfterViewInit {
   detail = false;
   height = '';
   heightTemp = '';
@@ -20,7 +27,6 @@ export class ProductsComponent implements OnInit {
   productDelete!: string;
   notificationTab = false;
   mesagge = '';
-
   @Input() set detailProducts(detail: boolean) {
     this.detail = detail;
   }
@@ -28,26 +34,29 @@ export class ProductsComponent implements OnInit {
   @Input() set heightBody(height: string) {
     this.height = height;
   }
-  loader = true;
+  loader: Loader | undefined = new Loader();
   products: any[] = [];
+
+  tableItems: number = 0;
+  tableTitle: string[] = [];
+  styleColum: string = '';
+  service = 'products';
+
   constructor(
     private dashboard: DataDashboardService,
-    private commonService: CommonServicesService) {
-
-
-    this.dashboard.getProducts().subscribe((lisProducts) => {
-      this.loader = true;
-      this.products = [];
-      lisProducts.forEach((product: any) => {
-        this.products.push({
-          id: product.payload.doc.id,
-          ...product.payload.doc.data(),
-        });
-      });
-      setTimeout(()=>{
-        this.loader = false;
-      },2000)
+    private commonService: CommonServicesService,
+    private loaderService: LoaderService
+  ) {
+    this.loaderService.loader$.subscribe((loader) => {
+      this.loader = loader.find((load) => load.nameService == this.service);
     });
+
+    this.dashboard.getFirebase(this.service).subscribe((response: any[]) => {
+      this.products = response;
+    });
+  }
+  ngAfterViewInit(): void {
+    //medir ancho de los items;
   }
 
   ngOnInit(): void {}
@@ -65,57 +74,59 @@ export class ProductsComponent implements OnInit {
     this.openModal();
   }
 
-  deleteProduct(idProduct:string){
-    this.productDelete = idProduct;
-    this.modalDelete = true;
+  deleteProduct(idProduct: string | undefined) {
+    if (idProduct) {
+      this.productDelete = idProduct;
+      this.modalDelete = true;
+    }
   }
 
-  add_update(response:any){
+  add_update(response: any) {
     this.closeModal();
-    if(this.productEdit == undefined){
+    if (this.productEdit == undefined) {
       this.addProductService(response);
-    }else{
+    } else {
       this.updateProductService(response);
-    }
-  }
-
-  addProductService(newProduct:any){
-    this.dashboard
-    .addProduct(newProduct)
-    .then(() => {
-      this.mesagge = 'Producto agregado correctamente';
-      this.notificationTab = true
-    })
-    .catch(() => {
-      this.mesagge = 'Producto agregado correctamente';
-      this.notificationTab = true
-    });
-  }
-
-  updateProductService(updateProduct:any){
-    this.dashboard.updateProduct(this.productEdit.id , updateProduct).then(()=>{
       this.productEdit = undefined;
-      this.mesagge = 'Producto actualizado correctamente';
-      this.commonService.addNotification(this.mesagge);
-    }).catch(()=>{
-      this.commonService.addNotification('No se ha eliminado el producto');
-    })
-  }
-
-
-  deleteProductEvent(response:any){
-    this.modalDelete = false;
-    if(response){
-      this.dashboard.deleteProduct(this.productDelete).then(()=>{
-        this.productDelete = '';
-        this.commonService.addNotification('Producto eliminado correctamente');
-      }).catch(()=>{
-        this.commonService.addNotification('No se ha eliminado el producto');
-      })
-    }else{
-      this.commonService.addNotification('No se ha eliminado el producto');
     }
   }
 
+  addProductService(newProduct: any) {
+    this.dashboard.addFirebase(
+      this.service,
+      newProduct,
+      'Producto agregado correctamente',
+      'Producto agregado correctamente'
+    );
+  }
 
+  deleteProductEvent(response: any) {
+    this.modalDelete = false;
+    if (response) {
+      this.dashboard.deleteFirebase(
+        this.service,
+        this.productDelete,
+        'Producto eliminado correctamente',
+        'El Producto no se ha podido eliminar'
+      );
+    }
+  }
+
+  updateProductService(updateProduct: any) {
+    this.dashboard.updateFirebase(
+      this.service,
+      updateProduct,
+      'El producto se ha podido actualizar',
+      'El producto no se ha podido actualizar'
+    );
+
+
+  }
+
+  ngAfterContentInit(): void {
+    //Called after ngOnInit when the component's or directive's content has been initialized.
+    //Add 'implements AfterContentInit' to the class.
+    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+    //Add 'implements AfterViewInit' to the class.
+  }
 }

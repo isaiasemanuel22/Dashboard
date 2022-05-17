@@ -1,4 +1,4 @@
-<card-content [loader]="loader">
+<card-content [loader]="loader!.loaderActive">
   <p title>Productos</p>
   <div content class="content-table">
     <div class="container-actions">
@@ -7,10 +7,10 @@
     </div>
     <div class="container-table">
       <table [heightBody]="height" [existTable]="products.length == 0">
-        <item-name-table >Identificador</item-name-table>
-        <item-name-table >Nombre</item-name-table>
-        <item-name-table >Disponibles</item-name-table>
-        <item-name-table >Precio</item-name-table>
+        <item-name-table width="150px">Identificador</item-name-table>
+        <item-name-table width="300px">Nombre</item-name-table>
+        <item-name-table width="100px">Disponibles</item-name-table>
+        <item-name-table width="100px">Precio</item-name-table>
         <item-name-table *ngIf="detail" width="100px">Costo</item-name-table>
         <item-name-table *ngIf="detail" width="100px">Accion</item-name-table>
 
@@ -26,8 +26,20 @@
           </item-name-table>
         </item-table>
       </table>
+
+
+      <!--div class="table" id="table" [style]="styleColum">
+        <div class="header"></div>
+        <div *ngFor=" let title of tableTitle" style="background-color:  rgba(0,0,0,0);">{{ title }}</div>
+        <ng-container *ngFor="let item of products">
+          <div *ngFor=" let title of tableTitle">
+            {{ item[title] }}
+          </div>
+        </ng-container>
+      </div-->
     </div>
   </div>
+
 </card-content>
 
 <ng-container *ngIf="openedModal">
@@ -41,7 +53,7 @@
 <ng-container *ngIf="modalDelete">
   <modal (closeEvent)="closeModal()">
     <p title-center>¿Seguro que quieres eliminarlo?</p>
-    <alert-delete content (finally)="deleteProductEvent($event)"  serviceDelete="product"></alert-delete>
+    <alert-delete content (finally)="deleteProductEvent($event)" serviceDelete="product"></alert-delete>
   </modal>
 </ng-container>
 
