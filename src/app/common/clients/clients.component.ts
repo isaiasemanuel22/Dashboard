@@ -1,102 +1,106 @@
 import { ThrowStmt } from '@angular/compiler';
 import { Component, Input, OnInit } from '@angular/core';
+import { CommonServicesService } from 'src/app/resources/common-service/common-services.service';
+import { Loader, LoaderService } from 'src/app/resources/loader/loader.service';
 import { DataDashboardService } from '../../resources/dashboardDataService/data-dashboard.service';
 
 @Component({
   selector: 'clients',
   templateUrl: './clients.component.html',
-  styleUrls: ['./clients.component.scss']
+  styleUrls: ['./clients.component.scss'],
 })
 export class ClientsComponent implements OnInit {
-
   detail = false;
   height = '';
-  heightTemp='';
+  heightTemp = '';
 
-  modalClient=false;
-  clientEdit:any;
+  modalClient = false;
+  clientEdit: any;
   modalDelete = false;
   clientDelete = '';
 
-  @Input() set detailProducts(detail:boolean){
-    this.detail = detail
+  @Input() set detailProducts(detail: boolean) {
+    this.detail = detail;
   }
 
-  @Input() set heightBody(height:string){
+  @Input() set heightBody(height: string) {
     this.height = height;
   }
+  service = 'clients';
+  listClients: any[] = [];
+  loader: Loader | undefined = new Loader();
+  constructor(
+    private dashboard: DataDashboardService,
+    private commonService: CommonServicesService,
+    private loaderService: LoaderService
+  ) {
+    this.dashboard.getFirebase(this.service).subscribe((response: any[]) => {
+      this.listClients = response;
+    });
 
-  listClients:any[] = [];
-  constructor(private dashboard:DataDashboardService) {
-    this.dashboard.getClients().subscribe((listClients)=>{
-      this.listClients = [];
-      listClients.forEach((client:any)=>{
-        this.listClients.push({
-          id: client.payload.doc.id,
-          ...client.payload.doc.data()
-        })
-      })
-    })
+    this.loaderService.loader$.subscribe((loader) => {
+      this.loader = loader.find((load) => load.nameService == this.service);
+    });
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
 
-  }
-
-  openModalClient(){
+  openModalClient() {
     this.modalClient = true;
   }
 
-  closeModalClient(){
+  closeModalClient() {
     this.modalClient = false;
     this.modalDelete = false;
-
   }
 
-  deleteEvent(response:any){
+  deleteEvent(response: any) {
     console.log(this.clientDelete);
     this.modalDelete = false;
-    if(response){
-      this.dashboard.deleteClient(this.clientDelete).then(()=>{
-      }).catch((error)=>{
-        console.error(error);
-      })
+    if (response) {
+      this.dashboard.deleteFirebase(
+        this.service,
+        this.clientDelete,
+        'Cliente eliminado exitosamene',
+        'No se ha podido eliminar'
+      );
     }
   }
 
-  editClient(client:any){
+  editClient(client: any) {
     this.clientEdit = client;
     this.openModalClient();
   }
 
-  deleteClient(idClient:string){
+  deleteClient(idClient: string) {
     this.clientDelete = idClient;
     this.modalDelete = true;
   }
 
-
-  add_update(response:any){
+  add_update(response: any) {
     this.closeModalClient();
-    if(this.clientEdit == undefined){
+    if (this.clientEdit == undefined) {
       this.addClient(response);
-    }else{
+    } else {
       this.updateClient(response);
     }
   }
 
-
-  addClient(newClient:any){
-    this.dashboard.addClient(newClient).then(()=>{
-
-    })
-    .catch((error)=>{
-      console.error(error);
-    })
+  addClient(newClient: any) {
+    this.dashboard.addFirebase(
+      this.service,
+      newClient,
+      'Cliente agregado correctamente',
+      'Cliente no agregado correctamente'
+    );
   }
 
-  updateClient(updateClient:any){
-    this.dashboard.updateClient(this.clientEdit.id , updateClient).then(()=>{
-      this.clientEdit = undefined;
-    })
+  updateClient(updateClient: any) {
+    this.dashboard.updateFirebase(
+      this.service,
+      updateClient,
+      'El cliente se ha actualizado correctamente',
+      'El cliente no se ha podido actualizar'
+    );
   }
 }

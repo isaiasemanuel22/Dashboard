@@ -14,13 +14,15 @@
   background-color: #fff;
   position: relative;
   .loading{
-    width: 100%;
-    min-height: 100px;
+    width: calc(100% - 40px);
+    height:calc(100% - 40px);
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(122, 122, 122, 0.445);
+    background-color: rgb(199, 199, 199);
     border-radius: 20px;
+    position: absolute;
+    z-index: 5;
   }
   btn-close{
     position: absolute;

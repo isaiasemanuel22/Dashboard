@@ -45,6 +45,7 @@ export class AddClientComponent implements OnInit {
     console.log(newClientResponse);
     if(!this.validateError()){
       const newClient:any = {
+        id : this.newClient.id || '',
         lastnames: newClientResponse.lastName,
         names: newClientResponse.names,
         DNI: newClientResponse.dni,

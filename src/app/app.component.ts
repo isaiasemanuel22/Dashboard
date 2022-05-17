@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     this.commonService.notification$.subscribe((message)=>{
-      this.message = message;
+     this.message = message.message;
       this.notification = true;
       setTimeout(()=>{
         this.notification = false;

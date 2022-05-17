@@ -18,7 +18,6 @@ export class DocumentComponent extends AbstractLottie implements OnInit {
   }
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
   }
 
   ngAfterViewInit(): void {
