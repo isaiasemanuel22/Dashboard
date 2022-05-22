@@ -11,6 +11,7 @@ import { DataDashboardService } from 'src/app/resources/dashboardDataService/dat
 import { Product } from 'src/app/resources/models/product/product';
 import { CommonServicesService } from '../../resources/common-service/common-services.service';
 import { Loader, LoaderService } from '../../resources/loader/loader.service';
+import {take } from 'rxjs/operators'
 
 @Component({
   selector: 'products',
@@ -38,10 +39,11 @@ export class ProductsComponent implements OnInit, AfterViewInit {
   products: any[] = [];
 
   tableItems: number = 0;
-  tableTitle: string[] = [];
+  tableKey: string[] = [];
   styleColum: string = '';
   service = 'products';
 
+  titles = ["colum 1" , "colum 2" ,"colum 3"];
   constructor(
     private dashboard: DataDashboardService,
     private commonService: CommonServicesService,
@@ -52,12 +54,22 @@ export class ProductsComponent implements OnInit, AfterViewInit {
     });
 
     this.dashboard.getFirebase(this.service).subscribe((response: any[]) => {
+      let response1 = response
       this.products = response;
+      this.tableKey = Object.keys(this.products[0]);
+      this.tableKey.sort();
+      console.log(response);
+      this.products.concat(response1);
+      console.log(response1);
     });
+
+
   }
   ngAfterViewInit(): void {
     //medir ancho de los items;
   }
+
+
 
   ngOnInit(): void {}
 

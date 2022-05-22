@@ -15,7 +15,6 @@ export class DataFirestone {
 })
 export class DataDashboardService {
   private _responseFireston = new Subject<DataFirestone[]>();
-  public $responseFireston = this._responseFireston.asObservable();
   private servicesObververs: DataFirestone[] = [];
   addElement: boolean = false;
 
@@ -74,11 +73,14 @@ export class DataDashboardService {
       .collection(service)
       .stateChanges()
       .subscribe((reponseArray) => {
+        console.log(reponseArray);
         reponseArray.forEach((elementFirestone: any) => {
           let element = {
-            id: elementFirestone.payload.doc.id,
+            id: '',
             ...elementFirestone.payload.doc.data(),
           };
+         element.id = elementFirestone.payload.doc.id
+         console.log(element);
           if (elementFirestone.type == 'removed') {
             response = [...this.deleteElement(response, element)];
           } else if (elementFirestone.type == 'modified') {

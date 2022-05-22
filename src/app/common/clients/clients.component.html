@@ -5,7 +5,7 @@
       <search></search>
       <buttom-action (click)="openModalClient()" >Agregar Cliente</buttom-action>
     </div>
-    <table class="table" [heightBody]="height" [existTable]="listClients.length == 0">
+    <dash-table class="table" [heightBody]="height" [existTable]="listClients.length == 0">
       <item-name-table width="100px">Apellido</item-name-table>
       <item-name-table width="200px">Nombre</item-name-table>
       <item-name-table width="200px">Email</item-name-table>
@@ -22,7 +22,7 @@
           <bin icon (click)="deleteClient(item.id)"></bin>
         </item-name-table>
       </item-table>
-    </table>
+    </dash-table>
   </div>
 </card-content>
 

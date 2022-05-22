@@ -27,6 +27,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AlertDeleteComponent } from './alert-delete/alert-delete.component';
 import { NotificationTabComponent } from './notification-tab/notification-tab.component';
 import { AddProviderComponent } from './add/add-provider/add-provider.component';
+import { ColumnComponent } from './table/column/column.component';
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import { AddProviderComponent } from './add/add-provider/add-provider.component'
     NotificationTabComponent,
     AddProviderComponent,
     AddProductComponent,
+    ColumnComponent,
 
   ],
   imports: [

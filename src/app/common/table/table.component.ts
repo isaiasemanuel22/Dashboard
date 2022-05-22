@@ -1,55 +1,52 @@
-import { Component, ContentChild, Input, OnInit, QueryList, ViewChild, ElementRef, AfterViewInit, OnChanges, SimpleChanges, ChangeDetectorRef } from '@angular/core';
+import {
+  Component,
+  ContentChild,
+  Input,
+  OnInit,
+  QueryList,
+  ViewChild,
+  ElementRef,
+  AfterViewInit,
+  OnChanges,
+  SimpleChanges,
+  ChangeDetectorRef,
+  ContentChildren,
+} from '@angular/core';
 import { Subscription } from 'rxjs';
+import { ItemNameTableComponent } from './item-name-table/item-name-table.component';
 import { ItemTableComponent } from './item-table/item-table.component';
 
 @Component({
-  selector: 'table',
+  selector: 'dash-table',
   templateUrl: './table.component.html',
-  styleUrls: ['./table.component.scss']
+  styleUrls: ['./table.component.scss'],
 })
-export class TableComponent implements OnInit  {
+export class TableComponent implements OnInit {
+  height = '';
 
-  height ='';
-
-  @ContentChild(ItemTableComponent) listTable!:ItemTableComponent
-
-  //@ViewChild(ItemTableComponent) listTable!:ItemTableComponent
-
-  //@ViewChild('listTable') listTable!:any;
-  dataChanges!:Subscription;
-  @Input() set heightBody(height:string){
+  @Input() set heightBody(height: string) {
     this.height = height;
   }
 
-  @Input() existTable:boolean = false;
-
-
-  content = '';
-  constructor(private cdref:ChangeDetectorRef , private el: ElementRef) {
+  @Input() existTable: boolean = true;
+  @Input() set titles(titles: string[]) {
+    console.log(titles);
+    this.titlesTable = titles;
   }
+  @Input() set data(data: any[]) {
+    console.log(data);
+    this.dataTable = data;
+    this.load = true;
+  }
+  content = '';
+  load = false;
+  titlesTable: string[] = [];
+  dataTable: any[] = [];
+  constructor() {}
+  ngOnInit(): void {}
 
   ngAfterViewInit(): void {
-    this.updateStateItem();
-    this.cdref.detectChanges();
-  }
-
-  ngOnInit(): void {
-
-  }
-
-  ngAfterContentChecked(): void {
-    //Called after every check of the component's or directive's content.
-    //Add 'implements AfterContentChecked' to the class.
-    this.updateStateItem();
-  }
-
-  updateStateItem(){
-    //this.existTable = this.listTable.nativeElement && this.listTable.nativeElement.children.length > 0;
-    this.existTable = this.listTable != null;
-
-  }
-
-  changes(){
-    console.log('changes detected ! ! !')
+    let element = document.getElementById('body-table')!;
+    element.style.height = this.height;
   }
 }

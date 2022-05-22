@@ -6,40 +6,10 @@
       <buttom-action *ngIf="detail" (click)="openModal()">Agregar Producto</buttom-action>
     </div>
     <div class="container-table">
-      <table [heightBody]="height" [existTable]="products.length == 0">
-        <item-name-table width="150px">Identificador</item-name-table>
-        <item-name-table width="300px">Nombre</item-name-table>
-        <item-name-table width="100px">Disponibles</item-name-table>
-        <item-name-table width="100px">Precio</item-name-table>
-        <item-name-table *ngIf="detail" width="100px">Costo</item-name-table>
-        <item-name-table *ngIf="detail" width="100px">Accion</item-name-table>
-
-        <item-table *ngFor="let item of products">
-          <item-name-table width="150px">#{{ item.idProduct }}</item-name-table>
-          <item-name-table width="300px">{{ item.name}}</item-name-table>
-          <item-name-table width="100px">{{ item.stock }}</item-name-table>
-          <item-name-table width="100px">${{ item.price }}</item-name-table>
-          <item-name-table *ngIf="detail" width="100px">${{ item.cost }}</item-name-table>
-          <item-name-table *ngIf="detail" width="100px" [actions]="true">
-            <pencil icon (click)="editProdut(item)"></pencil>
-            <bin icon (click)="deleteProduct(item.id)"></bin>
-          </item-name-table>
-        </item-table>
-      </table>
-
-
-      <!--div class="table" id="table" [style]="styleColum">
-        <div class="header"></div>
-        <div *ngFor=" let title of tableTitle" style="background-color:  rgba(0,0,0,0);">{{ title }}</div>
-        <ng-container *ngFor="let item of products">
-          <div *ngFor=" let title of tableTitle">
-            {{ item[title] }}
-          </div>
-        </ng-container>
-      </div-->
+      <dash-table [heightBody]="height" [data]="products" [titles]="tableKey">
+      </dash-table>
     </div>
   </div>
-
 </card-content>
 
 <ng-container *ngIf="openedModal">

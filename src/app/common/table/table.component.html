@@ -1,5 +1,33 @@
-<div class="container-table">
-  <header-table>
+<div class="container-table" id="body-table">
+  <table style="width: 100%; border-collapse: collapse;">
+    <thead>
+      <tr>
+        <th *ngFor="let title of titlesTable">{{title}}</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let element of dataTable" class="ContentContainer">
+        <td *ngFor="let title of titlesTable">{{element[title]}}</td>
+      </tr>
+      <tr *ngFor="let element of dataTable">
+        <td *ngFor="let title of titlesTable">{{element[title]}}</td>
+      </tr>
+      <tr *ngFor="let element of dataTable">
+        <td *ngFor="let title of titlesTable">{{element[title]}}</td>
+      </tr>
+    </tbody>
+
+  </table>
+
+  <div class="table-style">
+    <header-table>
+    </header-table>
+    <item-table *ngFor="let element of dataTable"></item-table>
+    <item-table *ngFor="let element of dataTable"></item-table>
+    <item-table *ngFor="let element of dataTable"></item-table>
+    </div>
+      <!--header-table>
     <ng-content select="item-name-table">
 
     </ng-content>
@@ -15,9 +43,9 @@
     <div class="emptyTable" *ngIf="!existTable">
       <p>Esta lista esta vacia</p>
     </div>
-    <!--ng-content select="[empty]">
+    <ng-content select="[empty]">
 
-    </ng-content-->
+    </ng-content>
 
-  </body-table>
-</div>
+  </body-table-->
+  </div>
