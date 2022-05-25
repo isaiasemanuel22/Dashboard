@@ -2,19 +2,13 @@
   <table style="width: 100%; border-collapse: collapse;">
     <thead>
       <tr>
-        <th *ngFor="let title of titlesTable">{{title}}</th>
+        <th *ngFor="let title of titlesTable">{{ title.name }}</th>
       </tr>
     </thead>
 
     <tbody>
       <tr *ngFor="let element of dataTable" class="ContentContainer">
-        <td *ngFor="let title of titlesTable">{{element[title]}}</td>
-      </tr>
-      <tr *ngFor="let element of dataTable">
-        <td *ngFor="let title of titlesTable">{{element[title]}}</td>
-      </tr>
-      <tr *ngFor="let element of dataTable">
-        <td *ngFor="let title of titlesTable">{{element[title]}}</td>
+        <td *ngFor="let title of titlesTable">{{element[title.referenceValue]}}</td>
       </tr>
     </tbody>
 
@@ -23,8 +17,6 @@
   <div class="table-style">
     <header-table>
     </header-table>
-    <item-table *ngFor="let element of dataTable"></item-table>
-    <item-table *ngFor="let element of dataTable"></item-table>
     <item-table *ngFor="let element of dataTable"></item-table>
     </div>
       <!--header-table>

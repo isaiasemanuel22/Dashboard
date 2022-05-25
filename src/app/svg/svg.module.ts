@@ -12,6 +12,7 @@ import { BtnCloseComponent } from './btn-close/btn-close.component';
 import { ManStyleComponent } from './man-style/man-style.component';
 import { SearchComponent } from './search/search.component';
 import { BellComponent } from './bell/bell.component';
+import { LoginGoogleComponent } from './login-google/login-google.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { BellComponent } from './bell/bell.component';
     ManStyleComponent,
     SearchComponent,
     BellComponent,
+    LoginGoogleComponent,
   ],
   imports: [
     CommonModule,
@@ -43,7 +45,8 @@ import { BellComponent } from './bell/bell.component';
     BtnCloseComponent,
     ManStyleComponent,
     SearchComponent,
-    BellComponent
+    BellComponent,
+    LoginGoogleComponent
   ],
   schemas:[
     CUSTOM_ELEMENTS_SCHEMA

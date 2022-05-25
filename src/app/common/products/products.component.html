@@ -6,7 +6,7 @@
       <buttom-action *ngIf="detail" (click)="openModal()">Agregar Producto</buttom-action>
     </div>
     <div class="container-table">
-      <dash-table [heightBody]="height" [data]="products" [titles]="tableKey">
+      <dash-table [heightBody]="height" [data]="products" [titles]="tableKey" [detail]="detail">
       </dash-table>
     </div>
   </div>
@@ -18,7 +18,6 @@
     <add-product content (saveEvent)="add_update($event)" [productEdit]="productEdit"></add-product>
   </modal>
 </ng-container>
-
 
 <ng-container *ngIf="modalDelete">
   <modal (closeEvent)="closeModal()">

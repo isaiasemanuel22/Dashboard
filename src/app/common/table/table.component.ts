@@ -27,23 +27,30 @@ export class TableComponent implements OnInit {
   @Input() set heightBody(height: string) {
     this.height = height;
   }
+  @Input() detail:boolean = false
 
   @Input() existTable: boolean = true;
-  @Input() set titles(titles: string[]) {
-    console.log(titles);
+
+  @Input() set titles(titles: any[]) {
     this.titlesTable = titles;
   }
+
   @Input() set data(data: any[]) {
-    console.log(data);
     this.dataTable = data;
     this.load = true;
   }
   content = '';
   load = false;
-  titlesTable: string[] = [];
+  titlesTable: any[] = [];
   dataTable: any[] = [];
   constructor() {}
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if(!this.detail){
+      this.titlesTable = this.titlesTable.filter((title)=> {
+        return title.detail == false;
+      })
+    }
+  }
 
   ngAfterViewInit(): void {
     let element = document.getElementById('body-table')!;

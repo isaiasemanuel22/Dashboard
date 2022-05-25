@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { TableService } from '../../resources/tableService/table-service.service';
 
 @Component({
   selector: 'pusrchase',
@@ -17,9 +18,9 @@ export class PusrchaseComponent implements OnInit {
   @Input() set detailPruchase(detail:boolean){
    this.detail = detail;
   }
-
-  constructor() {
-
+  tableKey:any[] = []
+  constructor(private tableService:TableService) {
+  this.tableKey = tableService.getHeaderTablePurchase();
     this.mockPurchase = [
       {
         order:1234,

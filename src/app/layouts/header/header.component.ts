@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AuthService } from '../../resources/authService/auth.service';
 
 @Component({
   selector: 'header-layout',
@@ -10,8 +11,8 @@ export class HeaderComponent implements OnInit {
 
   @Input() name :string | undefined
 
-
-  constructor() {
+  userLoggued:any;
+  constructor( private auth:AuthService ) {
     this.lottieConfig = {
       path: "https://cdn.lordicon.com/lusqsztk.js",
       renderer: 'canvas',
@@ -21,6 +22,7 @@ export class HeaderComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.auth.getUserLogued().subscribe(response => this.userLoggued = response);
   }
 
 }

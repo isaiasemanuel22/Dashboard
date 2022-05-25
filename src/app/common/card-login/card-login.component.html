@@ -1,0 +1,22 @@
+<div class="conteiner-login">
+  <div class="header">
+    <div class="logo-conteiner">
+      <logo></logo>
+    </div>
+    <p>Inspiration</p>
+  </div>
+  <div class="form">
+    <input-text name="email" [formGroup]="userData" placeholder="Email">
+      <label>Email</label>
+    </input-text>
+    <input-text name="password" [formGroup]="userData" placeholder="Constraseña">
+      <label>Constraseña</label>
+    </input-text>
+    <div class="content-btn">
+      <btn-save>Ingresar</btn-save>
+    </div>
+  </div>
+  <div class="login-google">
+    <login-google (click)="loginGoogle()"></login-google>
+  </div>
+</div>

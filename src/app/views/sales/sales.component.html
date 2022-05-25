@@ -1,2 +1,15 @@
-<actions-purchase></actions-purchase>
-<pusrchase [detailPruchase]="true" heightBody="calc(100vh - 350px)"></pusrchase>
+
+<app-layout>
+  <app-nav sidebar>
+    <app-navigator items style="width: 100%; height: 100%;"></app-navigator>
+    <dashboard-logo></dashboard-logo>
+  </app-nav>
+  <header-layout [name]="name" header></header-layout>
+  <dashboard-block-layout content>
+    <actions-purchase></actions-purchase>
+    <pusrchase [detailPruchase]="true" heightBody="calc(100vh - 350px)"></pusrchase>
+    <ng-container *ngIf="notification">
+      <notification-tab> {{ message }}</notification-tab>
+    </ng-container>
+  </dashboard-block-layout>
+</app-layout>

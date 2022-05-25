@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonServicesService } from './resources/common-service/common-services.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -12,8 +13,17 @@ export class AppComponent implements OnInit {
   title = 'dashboard';
   name='Isaias Calfin'
   message= '';
-  constructor(private commonService:CommonServicesService){
-
+  login = false;
+  constructor(
+    private commonService:CommonServicesService,
+    private route:ActivatedRoute
+    ){
+      let path = this.route.snapshot.url.join('/');
+      if(path.includes('login')){
+        this.login = true;
+      }else{
+        this.login = false;
+      }
   }
 
   ngOnInit(): void {

@@ -16,6 +16,7 @@ import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './views/login/login.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
     ClientsComponent,
     ProvidersComponent,
     SalesComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,48 +1,26 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
 
-export class ItemTable{
-  keyItemTable!:string;
-  widht?:Subject<number>;
-  constructor(){
-    this.widht = new Subject<number>()
-  }
+export class HeaderName {
+  name!: string;
+  referenceValue!: string;
+  priority!: number;
+  detail?:boolean
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class TableServiceService {
+export class TableService {
+  tableMockResponse = require('../mocks/headerTableProducts.json');
+  tableMockResponsePurchase = require('../mocks/headerTablePurchase.json');
+  headerTableName: HeaderName[] = this.tableMockResponse;
 
-  private itemsTable:ItemTable[] = [];
-  constructor() { }
 
-  getItemsWidht(key:string){
-    console.log(key)
-    let keyWidht = this.getItem(key);
-    if(keyWidht == undefined){
-      keyWidht = new ItemTable();
-      keyWidht.keyItemTable = key;
-      keyWidht.widht!.next(0)
-      console.log(keyWidht);
-    }
-    console.log(keyWidht);
-    return keyWidht.widht!.asObservable();
+  getHeaderTablePurchase(){
+    return this.tableMockResponsePurchase
   }
 
-  upadateKey(key:string , widht:number){
-    let keyWidht = this.getItem(key);
-    if(keyWidht!= undefined){
-      keyWidht.widht!.next(widht);
-    }
+  getHeaderTableProducts(){
+    return this.headerTableName;
   }
-
-
-  getItem(key:string){
-    return this.itemsTable.find((item)=>item.keyItemTable == key);
-  }
-
-
-
-
 }

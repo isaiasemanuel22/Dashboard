@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Orden",
+    "referenceValue": "order",
+    "priority": " 1",
+    "detail": false
+  },
+  {
+    "name": "Nombre",
+    "referenceValue": "clientName",
+    "priority": " 2",
+    "detail": false
+  },
+  {
+    "name": "Total Venta",
+    "referenceValue": "totalSend",
+    "priority": " 3",
+    "detail": false
+  }
+]

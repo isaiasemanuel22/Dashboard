@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Indetificador",
+    "referenceValue": "idProduct",
+    "priority": " 1",
+    "detail": false
+  },
+  {
+    "name": "Nombre",
+    "referenceValue": "name",
+    "priority": " 2",
+    "detail": false
+  },
+  {
+    "name": "Proveedor",
+    "referenceValue": "provider",
+    "priority": " 3",
+    "detail": true
+  },
+  {
+    "name": "Stock",
+    "referenceValue": "stock",
+    "priority": " 4",
+    "detail": false
+  },
+  {
+    "name": "Ingreso",
+    "referenceValue": "ingress",
+    "priority": " 5",
+    "detail": true
+  },
+  {
+    "name": "Precio",
+    "referenceValue": "price",
+    "priority": " 6",
+    "detail": false
+  },
+  {
+    "name": "Costo",
+    "referenceValue": "cost",
+    "priority": " 7",
+    "detail": true
+  }
+]

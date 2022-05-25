@@ -28,6 +28,7 @@ import { AlertDeleteComponent } from './alert-delete/alert-delete.component';
 import { NotificationTabComponent } from './notification-tab/notification-tab.component';
 import { AddProviderComponent } from './add/add-provider/add-provider.component';
 import { ColumnComponent } from './table/column/column.component';
+import { CardLoginComponent } from './card-login/card-login.component';
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import { ColumnComponent } from './table/column/column.component';
     AddProviderComponent,
     AddProductComponent,
     ColumnComponent,
+    CardLoginComponent,
 
   ],
   imports: [
@@ -79,6 +81,7 @@ import { ColumnComponent } from './table/column/column.component';
     ModalComponent,
     AddClientComponent,
     NotificationTabComponent,
+    CardLoginComponent
 
   ],
   schemas:[

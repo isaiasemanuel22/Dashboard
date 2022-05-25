@@ -1,6 +1,5 @@
 import { Component, Input, OnInit, AfterViewInit } from '@angular/core';
 import { LoaderService } from 'src/app/resources/loader/loader.service';
-import { TableServiceService } from '../../../resources/tableService/table-service.service';
 
 @Component({
   selector: 'item-name-table',
@@ -27,7 +26,6 @@ export class ItemNameTableComponent implements OnInit, AfterViewInit {
   keyWord!: string;
   element: any;
   constructor(
-    private tableService: TableServiceService,
     private loaderService: LoaderService
   ) {
     const generateId = () => Math.random().toString(36).substr(2, 18);

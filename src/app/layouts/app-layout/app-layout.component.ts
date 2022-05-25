@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-layout',
@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppLayoutComponent implements OnInit {
 
+  @Input() logued:boolean = true;
   constructor() { }
 
   ngOnInit(): void {

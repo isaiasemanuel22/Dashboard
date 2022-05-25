@@ -1,19 +1,30 @@
-<div class="list-utils-dashboard">
-  <actions (actionClick)="openModal($event)" ></actions>
-  <products heightBody = "calc(100vh - 600px)"></products>
-  <pusrchase heightBody = "calc(100vh - 600px)"></pusrchase>
-</div>
-
+<app-layout>
+  <app-nav sidebar>
+    <app-navigator items style="width: 100%; height: 100%;"></app-navigator>
+    <dashboard-logo></dashboard-logo>
+  </app-nav>
+    <header-layout header></header-layout>
+  <dashboard-block-layout content>
+  <div class="list-utils-dashboard">
+    <actions (actionClick)="openModal($event)"></actions>
+    <products heightBody="calc(100vh - 600px)"></products>
+    <pusrchase heightBody="calc(100vh - 600px)"></pusrchase>
+  </div>
+  <ng-container *ngIf="notification">
+    <notification-tab> {{ message }}</notification-tab>
+  </ng-container>
+</dashboard-block-layout>
+</app-layout>
 <ng-container *ngIf="modalProducts">
-  <modal (closeEvent)="closeModalProductos()" >
+  <modal (closeEvent)="closeModalProductos()">
     <p title>Agregar Producto</p>
     <add-product content (saveEvent)="closeModalProductos()"></add-product>
   </modal>
 </ng-container>
 
 <ng-container *ngIf="modalClient">
-  <modal (closeEvent)="closeModalClient()" >
+  <modal (closeEvent)="closeModalClient()">
     <p title>Agregar Cliente</p>
-    <add-client content ></add-client>
+    <add-client content></add-client>
   </modal>
 </ng-container>

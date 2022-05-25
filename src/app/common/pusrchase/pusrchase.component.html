@@ -2,24 +2,7 @@
   <p title>Ordenes de compra</p>
   <div content class="content-table">
     <search></search>
-    <dash-table class="table" [heightBody]="height">
-      <item-name-table width="150px">Orden N°</item-name-table>
-      <item-name-table width="300px">Nombre del Cliente</item-name-table>
-      <item-name-table width="100px">Total Venta</item-name-table>
-      <item-name-table width="100px">Acciones</item-name-table>
-
-      <item-table *ngFor="let item of mockPurchase">
-        <item-name-table width="150px"># {{ item.order }}</item-name-table>
-        <item-name-table width="300px">{{ item.clientName }}</item-name-table>
-        <item-name-table width="100px">$ {{ item.totalSend }}</item-name-table>
-        <item-name-table *ngIf="detail" width="100px" [actions]="true">
-          <pencil icon></pencil>
-          <bin icon></bin>
-        </item-name-table>
-        <item-name-table *ngIf="!detail" width="100px" [actions]="true">
-          <document icon></document>
-        </item-name-table>
-      </item-table>
+    <dash-table class="table" [heightBody]="height" [data]="mockPurchase" [titles]="tableKey">
     </dash-table>
   </div>
 
